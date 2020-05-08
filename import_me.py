@@ -1,3 +1,5 @@
 from dice import *
-from enemys import *
 from battle import *
+from character import *
+
+enemys = CharacterFactory("enemys")

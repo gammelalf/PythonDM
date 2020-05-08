@@ -1,4 +1,5 @@
 import json
+import os
 
 from dice import *
 
@@ -62,3 +63,21 @@ class Character(object):
 
     def __repr__(self):
         return f"{self.name} ({self.hp} / {self.max_hp})"
+
+
+class CharacterFactory(object):
+    
+    def __init__(self, directory):
+        for sheet in os.listdir(directory):
+            if not sheet.endswith(".json"):
+                continue
+            name = sheet[:-5]
+            sheet = os.path.join(directory, sheet)
+            constructor = self.__curried_constructor(name, sheet)
+            setattr(self, name.replace(" ", "_"), constructor)
+
+    @staticmethod
+    def __curried_constructor(name, sheet):
+        def constructor():
+            return Character(name, sheet=sheet)
+        return constructor
