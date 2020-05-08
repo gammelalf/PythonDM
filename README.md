@@ -32,7 +32,6 @@ enemys.Kobold()
 
 Notes on the json file:
 - the file's name (without the .json) is the enemys name
-- if a stat is left out of the file, the default will be used (see character.py)
 - the max\_hp may be an integer or a string containing a "dice formula" to roll
 - hp will be overwritten with max\_hp and can therefor be left away
 
