@@ -1,3 +1,5 @@
+import json
+
 from dice import *
 
 class Character(object):
@@ -25,11 +27,22 @@ class Character(object):
             "cha": 0
             }
 
-    def __init__(self, name, **kwargs):
+    def __init__(self, name, sheet=None, **kwargs):
         self.name = name
 
-        for key, value in kwargs.items():
+        if sheet is not None:
+            with open(sheet) as f:
+                sheet = json.load(f)
+            sheet.update(kwargs)
+        else:
+            sheet = kwargs
+
+        for key, value in sheet.items():
             self.__setattr__(key, value)
+
+        if isinstance(self.max_hp, str):
+            self.max_hp = eval(self.max_hp)
+        self.hp = self.max_hp
 
     def __getattr__(self, key):
         try:
