@@ -1,8 +1,9 @@
 from collections import defaultdict
 
+from util import Context
 from character import Character
 
-class Battle(object):
+class Battle(Context):
 
     def __init__(self, *args):
         self.__list__ = []
@@ -43,7 +44,7 @@ class Battle(object):
 
             # Add the creature
             self.__list__.append(char)
-            self.__dict__[char._global_name] = char
+            setattr(self, char._global_name, char)
         else:
             raise TypeError()
 
@@ -56,7 +57,7 @@ class Battle(object):
         """
         if isinstance(char, Character):
             self.__list__.remove(char)
-            del self.__dict__[char._global_name]
+            delattr(self, char._global_name)
         else:
             raise TypeError()
 
