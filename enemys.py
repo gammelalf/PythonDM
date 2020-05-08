@@ -25,8 +25,12 @@ class Enemys(object):
 
     def __init__(self):
         for enemy in [f[:-5] for f in os.listdir("enemys") if f.endswith(".json")]:
-            def func():
-                return Enemy(enemy)
-            setattr(self, enemy.replace(" ", "_"), func)
+            setattr(self, enemy.replace(" ", "_"), Enemys.__curried_constructor(enemy))
+
+    @staticmethod
+    def __curried_constructor(enemy):
+        def constructor():
+            return Enemy(enemy)
+        return constructor
 
 enemys = Enemys()
