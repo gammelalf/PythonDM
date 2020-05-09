@@ -1,0 +1,43 @@
+{
+    "name": "Cultist",
+
+    "size": "Medium",
+    "race": "Humanoid (any race)",
+    "alignment": [
+        "any",
+        "non-good"
+    ],
+
+    "ac": 12,
+    "armor": ["leather armor"],
+	"hp": "2*d8",
+    "speed": {
+        "walk": 30,
+        "swim": 0,
+        "fly": 0,
+        "burrow": 0
+    },
+
+    "str": 0,
+    "dex": 1,
+    "con": 0,
+    "int": 0,
+    "wis": 0,
+    "cha": 0,
+
+    "skills": {
+		"Deception": 2,
+		"Religion": 2
+	},
+    "senses": "passive Perception 10",
+    "language": [
+        "Common"
+    ],
+    "challenge": 0.125,
+
+	"dark devotion": "The cultist has advantage on saving throws against being charmed or frightened.",
+
+    "actions": [
+		"Scimitar. Melee Weapon Attack: +3 to hit, reach 5 ft., one creature. Hit: 4 (1d6 + 1) slashing damage."
+	]
+}

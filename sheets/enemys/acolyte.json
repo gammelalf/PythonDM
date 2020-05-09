@@ -1,0 +1,43 @@
+{
+    "name": "Acolyte",
+
+    "size": "Medium",
+    "race": "Humanoid (any race)",
+    "alignment": [
+        "any",
+        "any"
+    ],
+
+    "ac": 10,
+    "armor": [],
+	"hp": "2*d8",
+    "speed": {
+        "walk": 30,
+        "swim": 0,
+        "fly": 0,
+        "burrow": 0
+    },
+
+    "str": 0,
+    "dex": 0,
+    "con": 0,
+    "int": 0,
+    "wis": 2,
+    "cha": 0,
+
+    "skills": {
+			"Medicine": 4,
+			"Religion": 2
+		},
+    "senses": "passive Perception 12",
+    "language": [
+        "Common"
+    ],
+    "challenge": 0.25,
+
+	"spellcasting": "TODO",
+
+    "actions": [
+		"Club. Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 2 (1d4) bludgeoning damage."
+	]
+}

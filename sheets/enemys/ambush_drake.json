@@ -1,0 +1,47 @@
+{
+    "name": "Ambush Drake",
+
+    "size": "Medium",
+    "race": "dragon",
+    "alignment": [
+        "none",
+        "none"
+    ],
+
+    "ac": 13,
+    "armor": ["natural armor"],
+	"hp": "4*d6 + 8" ,
+    "speed": {
+        "walk": 30,
+        "swim": 0,
+        "fly": 0,
+        "burrow": 0
+    },
+
+    "str":  1,
+    "dex":  2,
+    "con":  2,
+    "int": -3,
+    "wis":  0,
+    "cha": -2,
+
+    "skills": {
+		"Perception": 4,
+		"Stealth": 4
+	},
+	"damage_resistances": [
+		"poison"
+	],
+    "senses": "darkvision 60ft, passive Perception 14",
+    "language": [
+        "Draconic (can't speak)"
+    ],
+    "challenge": 0.5,
+
+	"pack_tactics": "The drake has advantage on an attack roll against a creature if at least one of the drake’s allies is within 5 feet of the creature and the ally isn’t incapacitated.",
+	"surprise_attack": "If the drake surprises a creature and hits it with an attack during the first round of combat, the target takes an extra 7 (2d6) damage from the attack.",
+
+    "actions": [
+		"Bite. Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) piercing damage."
+	]
+}

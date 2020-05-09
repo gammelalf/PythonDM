@@ -1,0 +1,35 @@
+{
+    "name": "",
+    "size": "Medium",
+    "race": "Humanoid",
+    "alignment": [
+        "any",
+        "any"
+    ],
+    "hp": 0,
+    "ac": 10,
+    "armor": [],
+    "speed": {
+        "walk": 30,
+        "swim": 0,
+        "fly": 0,
+        "burrow": 0
+    },
+    "str": 0,
+    "dex": 0,
+    "con": 0,
+    "int": 0,
+    "wis": 0,
+    "cha": 0,
+    "saving_throws": {},
+    "skills": {},
+    "damage_resistances": [],
+    "senses": {
+        "passive Perception": 10
+    },
+    "language": [
+        "Common"
+    ],
+    "challenge": 1,
+    "actions": []
+}
