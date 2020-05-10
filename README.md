@@ -2,11 +2,11 @@
 
 ## Conventions
 
-###Attribute naming:
+### Attribute naming:
 
-- names the user shouldn't be concerned about, start with a double \_
-- functions the user should use, start with a single \_
-- attribute the user should access, start without a \_
+- names the user shouldn't be concerned about, start with a double "\_"
+- functions the user should use, start with a single "\_"
+- attribute the user should access, start without a "\_"
 
 ## Dice
 
