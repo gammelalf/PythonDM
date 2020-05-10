@@ -1,10 +1,11 @@
-import json
 import os
+
+from util import json_load
 
 
 class Sheet(object):
 
-    def __init__(self):
+    def __init__(self, path=None):
         self.name = ""
 
         self.size = "Medium"
@@ -37,19 +38,52 @@ class Sheet(object):
 
         self.actions = []
 
-    def dump(self, path):
-        with open(path, "w") as f:
-            json.dump(self.__dict__, f, indent=4)
-
-    def load(path):
-        self = Sheet()
-        with open(path) as f:
-            self.__dict__.update(json.load(f))
-        return self
+        if path is not None:
+            self.__dict__.update(json_load(path))
+        self.skills = Skills(self)
+        self.saving_throws = SavingThrows(self)
 
     def __str__(self):
         return f"""
         """
+
+
+class Skills:
+
+    __skill2attr__ = json_load("data/skills.json")
+    __slots__ = ["__sheet__", "__skills__"] \
+                + list(__skill2attr__.keys()) # For tab completion
+
+    def __init__(self, sheet):
+        self.__sheet__ = sheet
+        self.__skills__ = sheet.skills
+
+    def __getattr__(self, key):
+        if key in self.__skills__:
+            return self.__skills__[key]
+        elif key in Skills.__skill2attr__:
+            return getattr(self.__sheet__, Skills.__skill2attr__[key])
+        else:
+            raise AttributeError(key)
+
+
+class SavingThrows:
+
+    __slots__ = ["__sheet__", "__saving_throws__",
+                "str", "dex", "con", "int", "wis", "cha"] # For tab completion
+
+    def __init__(self, sheet):
+        self.__sheet__ = sheet
+        self.__saving_throws__ = sheet.saving_throws
+
+    def __getattr__(self, key):
+        if key in self.__saving_throws__:
+            return self.__saving_throws__[key]
+        elif key in ["str", "dex", "con", "int", "wis", "cha"]:
+            return getattr(self.__sheet__, key)
+        else:
+            raise AttributeError(key)
+
 
 
 class SheetDirectory:
@@ -71,7 +105,5 @@ class SheetDirectory:
     def __getattribute__(self, key):
         value = super().__getattribute__(key)
         if isinstance(value, str):
-            with open(value) as f:
-                value = Sheet()
-                value.__dict__.update(json.load(f))
+            value = Sheet(value)
         return value

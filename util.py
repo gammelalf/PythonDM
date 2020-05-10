@@ -1,3 +1,17 @@
+import json
+import os
+import sys
+
+def json_load(path):
+    """
+    Load a json file.
+
+    The `path` is relative to the program's folder.
+    """
+    with open(os.path.join(os.path.dirname(sys.argv[0]), path)) as f:
+        return json.load(f)
+
+
 class Context:
 
     __globals__ = None
