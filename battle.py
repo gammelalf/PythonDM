@@ -2,6 +2,7 @@ from collections import defaultdict
 
 from util import Context
 from character import Character
+from sheet import Sheet
 
 class Battle(Context):
 
@@ -27,7 +28,10 @@ class Battle(Context):
         """
         Add a character to the battle
         """
-        if isinstance(char, Character):
+        if isinstance(char, Sheet):
+            self._add(Character(char))
+
+        elif isinstance(char, Character):
             # Increase name counter
             self.__names__[char.name] += 1
 
@@ -45,6 +49,7 @@ class Battle(Context):
             # Add the creature
             self.__list__.append(char)
             setattr(self, char._global_name, char)
+
         else:
             raise TypeError()
 
