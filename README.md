@@ -1,5 +1,13 @@
 # PythonDM
 
+## Conventions
+
+###Attribute naming:
+
+- names the user shouldn't be concerned about, start with a double \_
+- functions the user should use, start with a single \_
+- attribute the user should access, start without a \_
+
 ## Dice
 
 This tool provides the usual collection of dice, namely d4, d6, d8, d10, d20, d100.
