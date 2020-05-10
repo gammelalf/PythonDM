@@ -22,18 +22,20 @@ Notes:
 
 It also provides a set of dice following a normal distribution available as gd\_
 
-## Enemys
+## Sheets
 
-Enemy types are stored in json files in the enemys/ directory.
-To create one in game (for example a Kobold) call:
+Sheets for characters (probably enemys) are stored in the sheets directory.
+This directory (and its subdirectories) will be scanned for json files.
+
+To access a sheet use:
 ```python
-enemys.Kobold()
+sheets.<subdir>.<sheet>
 ```
 
-Notes on the json file:
-- the file's name (without the .json) is the enemys name
-- the max\_hp may be an integer or a string containing a "dice formula" to roll
-- hp will be overwritten with max\_hp and can therefor be left away
+The enemys subdir will be available as just
+```python
+enemys.<sheet>
+```
 
 ## Battle
 
