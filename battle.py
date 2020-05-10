@@ -6,17 +6,12 @@ from sheet import Sheet
 
 class Battle(Context):
 
-    def __init__(self, *args):
+    def __init__(self):
+        # For sorting by initiative and interating
         self.__list__ = []
-        self.__names__ = defaultdict(int)
 
-        args = list(args)
-        while len(args) != 0:
-            num = args[0]
-            cls = args[1]
-            for i in range(num):
-                self._add(cls(i+1))
-            args = args[2:]
+        # For counting of names
+        self.__names__ = defaultdict(int)
 
     def __repr__(self):
         return "\n".join(map(repr, self))
@@ -27,8 +22,13 @@ class Battle(Context):
     def _add(self, char, *chars):
         """
         Add a character to the battle
+
+        Accepts Characters, Sheets, lists of those
         """
-        if isinstance(char, Sheet):
+        if isinstance(char, list):
+            self._add(*char)
+
+        elif isinstance(char, Sheet):
             self._add(Character(char))
 
         elif isinstance(char, Character):
@@ -51,7 +51,7 @@ class Battle(Context):
             setattr(self, char._global_name, char)
 
         else:
-            raise TypeError()
+            raise TypeError(type(char))
 
         if len(chars) != 0:
             self._add(*chars)
