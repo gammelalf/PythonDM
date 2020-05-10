@@ -29,8 +29,8 @@
 		"wis": 2
 	},
     "skills": {
-		"Deception": 3,
-		"Stealth": 5
+		"deception": 3,
+		"stealth": 5
 	},
     "senses": "passive Perception 10",
     "language": [

@@ -26,8 +26,8 @@
     "cha": 0,
 
     "skills": {
-		"Deception": 2,
-		"Religion": 2
+		"deception": 2,
+		"religion": 2
 	},
     "senses": "passive Perception 10",
     "language": [

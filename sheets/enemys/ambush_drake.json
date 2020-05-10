@@ -26,8 +26,8 @@
     "cha": -2,
 
     "skills": {
-		"Perception": 4,
-		"Stealth": 4
+		"perception": 4,
+		"stealth": 4
 	},
 	"damage_resistances": [
 		"poison"

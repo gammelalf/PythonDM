@@ -26,7 +26,7 @@
     "cha": 0,
 
     "skills": {
-		"Perception": 2
+		"perception": 2
 	},
 	"dmg_resistances": [
 		"lightning"

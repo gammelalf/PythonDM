@@ -26,8 +26,8 @@
     "cha": 0,
 
     "skills": {
-			"Medicine": 4,
-			"Religion": 2
+			"medicine": 4,
+			"religion": 2
 		},
     "senses": "passive Perception 12",
     "language": [

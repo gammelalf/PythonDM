@@ -30,9 +30,9 @@
 		"con": 5
 	},
     "skills": {
-		"Athletics": 6,
-		"Intimidation": 3,
-		"Perception": 4
+		"athletics": 6,
+		"intimidation": 3,
+		"perception": 4
 	},
 	"damage_resistances": [
 		"lightning"
