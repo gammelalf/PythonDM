@@ -1,12 +1,22 @@
 {
 	"name": "Guard",
 
-	"race": "Medium humanoid (any race)",
-	"alignment": ["any", "any"],
+	"size": "Medium",
+	"race": "Humanoid (any race)",
+	"alignment": [
+		"any",
+		"any"
+	],
 
 	"ac": 16,
 	"armor": ["chain shirt", "shield"],
-	"speed": 30,
+	"hp": "2d8+2",
+	"speed": {
+		"walk": 30,
+		"swim": 0,
+		"fly": 0,
+		"burrow": 0
+	},
 
 	"str": 1,
 	"dex": 1,
@@ -19,7 +29,9 @@
 		"perception": 2
 	},
 	"senses": "passive Perception 12",
-	"language": ["any"],
+	"language": [
+		"any"
+	],
 	"challenge": 0.125,
 
 	"actions": ["Spear. Melee or Ranged Weapon Attack: +3 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 4 (1d6 + 1) piercing damage or 5 (1d8 + 1) piercing damage if used with two hands to make a melee attack."]

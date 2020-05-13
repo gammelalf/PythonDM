@@ -10,7 +10,7 @@
 
     "ac": 14,
     "armor": ["natural armor"],
-	"hp": "7*d8 + 21",
+	"hp": "7d8+21",
     "speed": {
         "walk": 30,
         "swim": 0,

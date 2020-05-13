@@ -10,7 +10,7 @@
 
     "ac": 17,
     "armor": ["splint"],
-	"hp": "6*d12 + 18",
+	"hp": "6d12+18",
     "speed": {
         "walk": 30,
         "swim": 0,

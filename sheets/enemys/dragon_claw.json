@@ -10,7 +10,7 @@
 
     "ac": 14,
     "armor": ["leather armor"],
-	"hp": "3*d8 + 3",
+	"hp": "3d8+3",
     "speed": {
         "walk": 30,
         "swim": 0,

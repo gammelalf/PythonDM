@@ -7,7 +7,7 @@
 
 	"ac": 13,
 	"armor": ["hide armor"],
-	"hp": "9*d8+27",
+	"hp": "9d8+27",
 	"speed": 30,
 
 	"str":  3,
