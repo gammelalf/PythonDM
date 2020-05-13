@@ -26,6 +26,13 @@ class Character(object):
         return f"{self.name} ({self.hp} / {self.max_hp})"
 
 
+class Player(Character):
+
+    def _roll_initiative(self):
+        print(f"{self.name}'s initiative:")
+        self.initiative = int(input())
+
+
 class CharacterFactory(object):
     
     def __init__(self, directory):
