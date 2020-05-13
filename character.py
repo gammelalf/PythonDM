@@ -1,7 +1,7 @@
 import json
 import os
 
-from dice import *
+from dice import roll, gauss_dice, dice
 
 
 class Character(object):
@@ -12,7 +12,7 @@ class Character(object):
 
         self.max_hp = sheet.hp
         if isinstance(self.max_hp, str):
-            self.max_hp = eval(self.max_hp)
+            self.max_hp = roll(self.max_hp, gauss_dice)
         self.hp = self.max_hp
 
     @property
@@ -20,7 +20,7 @@ class Character(object):
         return self.name.lower().replace(" ", "_")
 
     def _roll_initiative(self):
-        self.initiative = d20 + self.sheet.dex
+        self.initiative = dice(20) + self.sheet.dex
 
     def __repr__(self):
         return f"{self.name} ({self.hp} / {self.max_hp})"
