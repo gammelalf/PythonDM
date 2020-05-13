@@ -10,25 +10,27 @@
 
 ## Dice
 
-This tool provides the usual collection of dice, namely d4, d6, d8, d10, d20, d100.
+This tool provides the function "roll(expr)" for evaluating dice containing expressions.
 
-To roll a single dice, type:
+Examples:
 ```python
-d20()
+>>> roll("d20")
+11
+>>> roll("2d6 + 2")
+8
+>>> roll("d6 + 2d8")
+22
 ```
 
-You can also roll complexer compositions:
+The function also takes a second optional argument "dice". This is the function used for
+rolling a single dice. It takes an integer and returns an integer. The tool also provides
+the alternative "gauss\_dice" whose rolls follow the normal distribution.
+
+Examples:
 ```python
-2 * d6 + d4 + 2
+>>> roll("d20", gauss_dice)
+11
 ```
-
-Notes:
-- The () are left away.
-- It needs to be 2\*d6 instead of just 2d6.
-- 2\*d6 means roll a d6 2-times.
-- To multiply a single roll by 2 use 2\*d6().
-
-It also provides a set of dice following a normal distribution available as gd\_
 
 ## Sheets
 
