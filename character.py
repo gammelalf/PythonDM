@@ -31,21 +31,3 @@ class Player(Character):
     def _roll_initiative(self):
         print(f"{self.name}'s initiative:")
         self.initiative = int(input())
-
-
-class CharacterFactory(object):
-    
-    def __init__(self, directory):
-        for sheet in os.listdir(directory):
-            if not sheet.endswith(".json"):
-                continue
-            name = sheet[:-5]
-            sheet = os.path.join(directory, sheet)
-            constructor = self.__curried_constructor(name, sheet)
-            setattr(self, name.replace(" ", "_"), constructor)
-
-    @staticmethod
-    def __curried_constructor(name, sheet):
-        def constructor():
-            return Character(name, sheet=sheet)
-        return constructor
