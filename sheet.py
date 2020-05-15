@@ -113,4 +113,5 @@ class SheetDirectory:
         value = super().__getattribute__(key)
         if isinstance(value, str):
             value = Sheet(value)
+            self.__setattr__(key, value)
         return value

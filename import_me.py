@@ -7,11 +7,9 @@ from character import Player, Character
 sheets = SheetDirectory(real_path("sheets"))
 enemys = sheets.enemys
 
-players = [Player(sheets.players.niklas),
-           Player(sheets.players.chris),
-           Player(sheets.players.malek),
-           Player(sheets.players.eva),
-           Player(sheets.players.vincent)]
+players = []
+for player in sheets.players.__dict__:
+    players.append(Player(getattr(sheets.players, player)))
 
 def reset_battle():
     global battle
