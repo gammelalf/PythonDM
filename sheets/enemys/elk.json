@@ -1,0 +1,37 @@
+{
+    "name": "Elk",
+
+    "size": "Large",
+    "race": "Beast",
+    "alignment": [
+        "none"
+    ],
+
+    "ac": 10,
+    "armor": [],
+	"hp": "2d10+2",
+    "speed": {
+        "walk": 50,
+        "swim": 0,
+        "fly": 0,
+        "burrow": 0
+    },
+
+    "str": 3,
+    "dex": 0,
+    "con": 1,
+    "int": -4,
+    "wis": 0,
+    "cha": -2,
+
+    "skills": {},
+    "senses": {
+		"passive Perception": 10
+	},
+    "language": [
+    ],
+    "challenge": 0.25,
+
+    "actions": [
+	]
+}

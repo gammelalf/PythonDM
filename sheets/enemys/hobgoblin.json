@@ -1,0 +1,39 @@
+{
+	"name": "Hobgoblin",
+
+	"size": "Medium",
+	"race": "Humanoid (goblinoid)",
+	"alignment": [
+		"lawful",
+		"evil"
+	],
+
+	"ac": 18,
+	"armor": ["chain mail", "shield"],
+	"hp": "2d8+2",
+	"speed": {
+		"walk": 30,
+		"swim": 0,
+		"fly": 0,
+		"burrow": 0
+	},
+
+	"str": 1,
+	"dex": 1,
+	"con": 1,
+	"int": 0,
+	"wis": 0,
+	"cha": -1,
+
+	"senses": {
+		"darkvision": 60,
+		"passive Perception": 10
+	},
+	"language": [
+		"Common",
+		"Goblin"
+	],
+	"challenge": 0.5,
+
+	"actions": []
+}

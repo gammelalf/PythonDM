@@ -1,0 +1,38 @@
+{
+    "name": "Deer",
+
+    "size": "Medium",
+    "race": "Beast",
+    "alignment": [
+        "none"
+    ],
+
+    "ac": 13,
+    "armor": [],
+	"hp": "1d8",
+    "speed": {
+        "walk": 50,
+        "swim": 0,
+        "fly": 0,
+        "burrow": 0
+    },
+
+    "str": 0,
+    "dex": 3,
+    "con": 0,
+    "int": -4,
+    "wis": 2,
+    "cha": -3,
+
+    "skills": {},
+    "senses": {
+		"passive Perception": 10
+	},
+    "language": [
+    ],
+    "challenge": 0,
+
+    "actions": [
+		"Bite. Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 2 (1d4) piercing damage."
+	]
+}

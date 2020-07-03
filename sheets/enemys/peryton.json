@@ -1,0 +1,47 @@
+{
+    "name": "Peryton",
+
+    "size": "Medium",
+    "race": "monstosity",
+    "alignment": [
+        "chaotic",
+        "evil"
+    ],
+
+    "ac": 113,
+    "armor": ["natural"],
+	"hp": "6d8+6",
+    "speed": {
+        "walk": 20,
+        "swim": 0,
+        "fly": 60,
+        "burrow": 0
+    },
+
+    "str": 3,
+    "dex": 1,
+    "con": 1,
+    "int": -1,
+    "wis": 1,
+    "cha": 0,
+
+    "skills": {
+		"perception": 5
+	},
+	"damage_resistances": [
+		"bludgeoning",
+		"piercing",
+		"slashing from nonmagical attacks"
+	],
+    "senses": {
+		"passive Perception": 15
+	},
+    "language": [
+        "Common",
+		"Elvish"
+    ],
+    "challenge": 2,
+
+    "actions": [
+	]
+}

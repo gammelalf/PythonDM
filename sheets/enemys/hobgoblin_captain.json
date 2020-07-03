@@ -1,0 +1,39 @@
+{
+	"name": "Hobgoblin Captain",
+
+	"size": "Medium",
+	"race": "Humanoid (goblinoid)",
+	"alignment": [
+		"lawful",
+		"evil"
+	],
+
+	"ac": 17,
+	"armor": ["half plate"],
+	"hp": "6d8+12",
+	"speed": {
+		"walk": 30,
+		"swim": 0,
+		"fly": 0,
+		"burrow": 0
+	},
+
+	"str": 2,
+	"dex": 2,
+	"con": 2,
+	"int": 1,
+	"wis": 0,
+	"cha": 1,
+
+	"senses": {
+		"darkvision": 60,
+		"passive Perception": 10
+	},
+	"language": [
+		"Common",
+		"Goblin"
+	],
+	"challenge": 3,
+
+	"actions": []
+}

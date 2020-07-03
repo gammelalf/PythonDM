@@ -1,0 +1,42 @@
+{
+    "name": "Ettercap",
+
+    "size": "Medium",
+    "race": "monstrosity",
+    "alignment": [
+        "neutral",
+		"evil"
+    ],
+
+    "ac": 13,
+    "armor": ["natural"],
+	"hp": "8d8+8",
+    "speed": {
+        "walk": 30,
+		"climb": 30,
+        "swim": 0,
+        "fly": 0,
+        "burrow": 0
+    },
+
+    "str": 2,
+    "dex": 2,
+    "con": 1,
+    "int": -2,
+    "wis": 1,
+    "cha": -1,
+
+    "skills": {
+		"perception": 3,
+		"stealth": 4,
+		"survival": 3
+	},
+    "senses": {
+		"darkvision": 60,
+		"passive Perception": 13
+	},
+    "challenge": 2,
+
+    "actions": [
+	]
+}
