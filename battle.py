@@ -73,8 +73,4 @@ class Battle(Context):
         """
         Order combatants in list by initiative
         """
-        if roll:
-            for char in self:
-                char._roll_initiative()
-
         self.__list__.sort(key=lambda x: x.initiative, reverse=True)
