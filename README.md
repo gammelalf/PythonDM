@@ -42,11 +42,30 @@ To access a sheet use:
 sheets.<subdir>.<sheet>
 ```
 
-The enemys subdir will be available as just
+The enemys subdir will also be available as just
 ```python
 enemys.<sheet>
 ```
 
 ## Battle
 
-Here be dragons (TODO)
+A battle is a collection of characters.
+
+To add characters, use the function
+```python
+battle._add(character)
+```
+It takes any number of arguments. These can be:
+
+- A Character object
+- A sheet object
+- A number followed by any other valid argument will add the argument number-times
+- A list will call the function again on its entries
+
+To sort the characters by their initiative (and make them determine it in the first place) use:
+```python
+battle._order()
+```
+
+For player rolls, the script will ask for input.
+If characters' initiative matches, a second, third, etc. roll will be made.

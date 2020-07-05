@@ -30,13 +30,13 @@ class Battle(Context):
             char = chars[0]
             chars = chars[1:]
             for i in range(n):
-                self._add(char)
+                self._add_single(char)
 
         elif isinstance(char, list):
             self._add(*char)
 
         elif isinstance(char, Sheet):
-            self._add(Character(char))
+            self._add_single(Character(char))
 
         elif isinstance(char, Character):
             self._add_single(char)
