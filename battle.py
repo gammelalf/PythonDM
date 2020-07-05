@@ -25,36 +25,49 @@ class Battle(Context):
 
         Accepts Characters, Sheets, lists of those
         """
-        if isinstance(char, list):
+        if isinstance(char, int):
+            n = char
+            char = chars[0]
+            chars = chars[1:]
+            for i in range(n):
+                self._add(char)
+
+        elif isinstance(char, list):
             self._add(*char)
 
         elif isinstance(char, Sheet):
             self._add(Character(char))
 
         elif isinstance(char, Character):
-            # Increase name counter
-            self.__names__[char.name] += 1
-
-            # If creature is second, label the first
-            if self.__names__[char.name] == 2:
-                first = getattr(self, char._global_name)
-                delattr(self, first._global_name)
-                first.name += " 1"
-                setattr(self, first._global_name, first)
-
-            # If creature isn't the first, label it
-            if self.__names__[char.name] > 1:
-                char.name += f" {self.__names__[char.name]}"
-
-            # Add the creature
-            self.__list__.append(char)
-            setattr(self, char._global_name, char)
+            self._add_single(char)
 
         else:
             raise TypeError(type(char))
 
         if len(chars) != 0:
             self._add(*chars)
+
+    def _add_single(self, char):
+        """
+        Add a single character to the battle
+        """
+        # Increase name counter
+        self.__names__[char.name] += 1
+
+        # If creature is second, label the first
+        if self.__names__[char.name] == 2:
+            first = getattr(self, char._global_name)
+            delattr(self, first._global_name)
+            first.name += " 1"
+            setattr(self, first._global_name, first)
+
+        # If creature isn't the first, label it
+        if self.__names__[char.name] > 1:
+            char.name += f" {self.__names__[char.name]}"
+
+        # Add the creature
+        self.__list__.append(char)
+        setattr(self, char._global_name, char)
 
     def _remove(self, char, *chars):
         """
