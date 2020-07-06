@@ -39,6 +39,15 @@ class Coord:
         else:
             return x + y // 2
 
+    def __eq__(self, obj):
+        if isinstance(obj, Coord):
+            return self.x == obj.x and self.y == obj.y
+        else:
+            return False
+
+    def __hash__(self):
+        return hash((self.x, self.y, ))
+
     def __repr__(self):
         return f"Coord({self.x}, {self.y})"
 

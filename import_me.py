@@ -1,8 +1,9 @@
-from backend.dice import *
+from backend import *
+from backend.character import Player, Character
+
 from battle import Battle
 from sheet import SheetDirectory, Sheet
 from util import real_path, Context
-from backend.character import Player, Character
 
 # Load sheets
 sheets = SheetDirectory(real_path("sheets"))
