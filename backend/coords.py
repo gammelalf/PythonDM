@@ -1,8 +1,10 @@
 from math import sqrt
+from functools import wraps
 
 
 def position_argument_at(index):
     def decorator(func):
+        @wraps(func)
         def decorated_func(*args, **kwargs):
             # If the argument is already a Point, no action is needed
             if isinstance(args[index], Point) or args[index] is None:
@@ -18,9 +20,6 @@ def position_argument_at(index):
             else:
                 raise TypeError(f"unsupported position argument type: '{type(args[index])}'")
             return func(*args, **kwargs)
-
-        decorated_func.__name__ = func.__name__
-        decorated_func.__doc__ = func.__doc__
         return decorated_func
     return decorator
 

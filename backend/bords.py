@@ -32,7 +32,7 @@ class DictBord(dict):
             return None
 
     @position_argument_at(2)
-    def move(self, char, new_pos, *args):
+    def move(self, char, new_pos):
         if new_pos in self:
             raise ValueError("Position is already occupied")
         else:
