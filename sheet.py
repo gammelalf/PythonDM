@@ -1,6 +1,6 @@
 import os
 
-from character import Character
+from backend.character import Character
 from util import json_load
 
 

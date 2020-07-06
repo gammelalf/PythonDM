@@ -1,7 +1,7 @@
 import json
 import os
 
-from dice import roll, gauss_dice, dice
+from .dice import roll, gauss_dice, dice
 
 
 class Character(object):

@@ -1,7 +1,7 @@
 from collections import defaultdict
 
 from util import Context
-from character import Character
+from backend.character import Character
 from sheet import Sheet
 
 class Battle(Context):
