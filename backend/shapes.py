@@ -1,4 +1,4 @@
-from .coords import Coord
+from .coords import Point
 from .coords import position_argument_at as paa
 
 
@@ -28,15 +28,17 @@ class Circle(Shape):
     def __iter__(self):
         for dx in range(self.r+1):
             for dy in range(self.r+1):
-                d = Coord(dx, dy)
+                d = Point(dx, dy)
                 if abs(d) <= self.r:
                     yield self.pos + d
                     if dx > 0:
-                        yield self.pos + Coord(-dx, dy)
+                        yield self.pos + Point(-dx, dy)
                     if dy > 0:
-                        yield self.pos + Coord(dx, -dy)
+                        yield self.pos + Point(dx, -dy)
                         if dx > 0:
-                            yield self.pos + Coord(-dx, -dy)
+                            yield self.pos + Point(-dx, -dy)
+                else:
+                    break
 
     def __repr__(self):
         return f"Circle({repr(self.pos)}, {self.r})"
@@ -55,8 +57,8 @@ class Rect(Shape):
             x1, x2 = x2, x1
         if y1 > y2:
             y1, y2 = y2, y1
-        self.pos1 = Coord(x1, y1)
-        self.pos2 = Coord(x2, y2)
+        self.pos1 = Point(x1, y1)
+        self.pos2 = Point(x2, y2)
 
     @paa(1)
     def __contains__(self, point):
@@ -66,7 +68,7 @@ class Rect(Shape):
     def __iter__(self):
         for x in range(self.pos1.x, self.pos2.x+1):
             for y in range(self.pos1.y, self.pos2.y+1):
-                yield Coord(x, y)
+                yield Point(x, y)
 
     def __repr__(self):
         return f"Rect({repr(self.pos1)}, {repr(self.pos2)})"
@@ -79,3 +81,9 @@ def iter_test(shape, size=16):
             print(f"Got {p} more than just once")
         field[p.x][p.y] = 'X'
     print("\n".join(map(lambda x: "".join(x), field)))
+
+def contains_iter_test(shape):
+    for p in shape:
+        if p not in shape:
+            print(f"{p} is returned by the iterator, but __contains__ returns False")
+    print("If you see only this, then everything is fine")

@@ -1,13 +1,13 @@
-from .coords import Coord, position_argument_at
+from .coords import Point, position_argument_at
 from .character import Character
 
 class DictBord:
 
     def __init__(self):
-        # Map from Position (Coordinate) to Character
+        # Map from Position (Point) to Character
         self.__p2c__ = {}
 
-        # Map from Character to Position (Coordinate)
+        # Map from Character to Position (Point)
         self.__c2p__ = {}
 
     @position_argument_at(1)
@@ -36,14 +36,14 @@ class DictBord:
             self.__set(character, new_position)
 
     def __set(self, character, position, *args):
-        if isinstance(character, Character) and isinstance(position, Coord):
+        if isinstance(character, Character) and isinstance(position, Point):
             self.__p2c__[position] = character
             self.__c2p__[character] = position
         else:
             raise TypeError(f"unsupported argument types: '{type(character)}' and '{type(position)}'")
 
     def __unset(self, obj):
-        if isinstance(obj, Coord):
+        if isinstance(obj, Point):
             if obj in self.__p2c__:
                 del self.__c2p__[self.__p2c__[obj]]
                 del self.__p2c__[obj]
