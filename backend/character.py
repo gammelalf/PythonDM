@@ -16,6 +16,7 @@ class Character(object):
         self.hp = self.max_hp
 
         self.initiative = Initiative(self._roll_initiative)
+        self.position = None
 
     @property
     def _global_name(self):

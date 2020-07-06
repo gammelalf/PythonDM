@@ -1,59 +1,44 @@
 from .coords import Point, position_argument_at
 from .character import Character
 
-class DictBord:
 
-    def __init__(self):
-        # Map from Position (Point) to Character
-        self.__p2c__ = {}
-
-        # Map from Character to Position (Point)
-        self.__c2p__ = {}
+class DictBord(dict):
 
     @position_argument_at(1)
-    def get_character(self, position, *args):
-        if position in self.__p2c__:
-            return self.__p2c__[position]
-        else:
-            return None
+    def __getitem__(self, pos):
+        return super().__getitem__(pos)
 
-    def get_position(self, character):
-        if character in self.__c2p__:
-            return self.__c2p__[character]
+    @position_argument_at(1)
+    def __setitem__(self, pos, char):
+        if isinstance(char, Character):
+            super().__setitem__(pos, char)
+            char.position = pos
+        else:
+            raise TypeError("invalid type '{type(char)}', must be {Character}")
+
+    @position_argument_at(1)
+    def __delitem__(self, pos):
+        if pos in self:
+            self[pos].position = None
+            super().__delitem__(pos)
+        else:
+            raise KeyError("position is already unoccupied")
+
+    @position_argument_at(1)
+    def get_character(self, pos):
+        if position in self:
+            return self[position]
         else:
             return None
 
     @position_argument_at(2)
-    def move(self, character, new_position, *args):
-        if new_position in self.__p2c__:
+    def move(self, char, new_pos, *args):
+        if new_pos in self:
             raise ValueError("Position is already occupied")
         else:
             try:
-                self.__unset(character)
-            except ValueError:
+                del self[char.position]
+            except TypeError:
                 # The character didn't have any position yet
                 pass
-            self.__set(character, new_position)
-
-    def __set(self, character, position, *args):
-        if isinstance(character, Character) and isinstance(position, Point):
-            self.__p2c__[position] = character
-            self.__c2p__[character] = position
-        else:
-            raise TypeError(f"unsupported argument types: '{type(character)}' and '{type(position)}'")
-
-    def __unset(self, obj):
-        if isinstance(obj, Point):
-            if obj in self.__p2c__:
-                del self.__c2p__[self.__p2c__[obj]]
-                del self.__p2c__[obj]
-            else:
-                raise ValueError("position is already unoccupied")
-        elif isinstance(obj, Character):
-            if obj in self.__c2p__:
-                del self.__p2c__[self.__c2p__[obj]]
-                del self.__c2p__[obj]
-            else:
-                raise ValueError("character already has no position")
-        else:
-            raise TypeError(f"unsupported argument type: '{type(obj)}'")
+            self[new_pos] = char
