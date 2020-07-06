@@ -52,4 +52,25 @@ class Coord:
         return f"Coord({self.x}, {self.y})"
 
     def __str__(self):
-        return f"({x}, {y})"
+        return f"({self.x}, {self.y})"
+
+
+def position_argument_at(index):
+    def decorator(func):
+        def decorated_func(*args, **kwargs):
+            # If the argument is already a Coord, no action is needed
+            if isinstance(args[index], Coord):
+                return func(*args, **kwargs)
+
+            # Convert to list for easier manipulation
+            args = list(args)
+            if isinstance(args[index], tuple) and len(args[index]) == 2:
+                args[index] = Coord(args[index][0], args[index][1])
+            elif isinstance(args[index], int) and isinstance(args[index+1], int):
+                args[index] = Coord(args[index], args[index+1])
+                del args[index+1]
+            else:
+                raise TypeError(f"unsupported position argument type: '{type(args[index])}'")
+            return func(*args, **kwargs)
+        return decorated_func
+    return decorator
