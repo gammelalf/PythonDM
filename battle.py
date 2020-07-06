@@ -7,7 +7,7 @@ from sheet import Sheet
 class Battle(Context):
 
     def __init__(self):
-        # For sorting by initiative and interating
+        # For sorting by initiative and iterating
         self.__list__ = []
 
         # For counting of names
@@ -30,7 +30,7 @@ class Battle(Context):
             char = chars[0]
             chars = chars[1:]
             for i in range(n):
-                self._add_single(char)
+                self._add(char)
 
         elif isinstance(char, list):
             self._add(*char)
