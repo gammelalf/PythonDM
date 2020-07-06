@@ -1,8 +1,11 @@
+from math import sqrt
+
+
 def position_argument_at(index):
     def decorator(func):
         def decorated_func(*args, **kwargs):
             # If the argument is already a Point, no action is needed
-            if isinstance(args[index], Point):
+            if isinstance(args[index], Point) or args[index] is None:
                 return func(*args, **kwargs)
 
             # Convert to list for easier manipulation
@@ -51,6 +54,9 @@ class Point:
     def __sub__(self, obj):
         return Point(self.x - obj.x, self.y - obj.y)
 
+    def __mul__(self, obj):
+        return Point(round(self.x * obj), round(self.y * obj))
+
     def __abs__(self):
         x = abs(self.x)
         y = abs(self.y)
@@ -60,10 +66,16 @@ class Point:
             return x + y // 2
 
     @position_argument_at(1)
-    def __eq__(self, obj):
-        if isinstance(obj, Point):
+    def __equal_point(self, obj):
+        if obj is not None:
             return self.x == obj.x and self.y == obj.y
         else:
+            return False
+
+    def __eq__(self, obj):
+        try:
+            return self.__equal_point(obj)
+        except TypeError:
             return False
 
     def __hash__(self):
@@ -74,5 +86,3 @@ class Point:
 
     def __str__(self):
         return f"({self.x}, {self.y})"
-
-

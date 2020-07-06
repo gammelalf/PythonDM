@@ -1,15 +1,41 @@
+from math import sqrt
+
 from .coords import Point
 from .coords import position_argument_at as paa
 
 
 class Shape:
 
-    @paa(1)
-    def __contains__(self, point):
-        raise NotImplemented
-
     def __iter__(self):
         raise NotImplemented
+
+    @paa(1)
+    def __contains__(self, point):
+        return point in iter(self)
+
+
+class Line(Shape):
+
+    __slots__ = ["pos1", "pos2"]
+
+    @paa(1)
+    @paa(2)
+    def __init__(self, pos1, pos2):
+        self.pos1 = pos1
+        self.pos2 = pos2
+
+    def __iter__(self):
+        direction = self.pos2 - self.pos1
+        distance = round(sqrt(direction.x**2 + direction.y**2))
+        old = None
+        for i in range(distance+1):
+            new = direction*(i/distance)+self.pos1
+            if new != old:
+                old = new
+                yield new
+
+    def __repr__(self):
+        return f"Line({repr(self.pos1)}, {repr(self.pos2)})"
 
 
 class Circle(Shape):
@@ -20,10 +46,6 @@ class Circle(Shape):
     def __init__(self, position, radius):
         self.pos = position
         self.r = radius
-
-    @paa(1)
-    def __contains__(self, point):
-        return abs(point - self.pos) <= self.r
 
     def __iter__(self):
         for dx in range(self.r+1):
@@ -39,6 +61,10 @@ class Circle(Shape):
                             yield self.pos + Point(-dx, -dy)
                 else:
                     break
+
+    @paa(1)
+    def __contains__(self, point):
+        return abs(point - self.pos) <= self.r
 
     def __repr__(self):
         return f"Circle({repr(self.pos)}, {self.r})"
@@ -60,15 +86,15 @@ class Rect(Shape):
         self.pos1 = Point(x1, y1)
         self.pos2 = Point(x2, y2)
 
-    @paa(1)
-    def __contains__(self, point):
-        return self.pos1.x <= point.x and point.x <= self.pos2.x \
-           and self.pos1.y <= point.y and point.y <= self.pos2.y
-
     def __iter__(self):
         for x in range(self.pos1.x, self.pos2.x+1):
             for y in range(self.pos1.y, self.pos2.y+1):
                 yield Point(x, y)
+
+    @paa(1)
+    def __contains__(self, point):
+        return self.pos1.x <= point.x and point.x <= self.pos2.x \
+           and self.pos1.y <= point.y and point.y <= self.pos2.y
 
     def __repr__(self):
         return f"Rect({repr(self.pos1)}, {repr(self.pos2)})"
@@ -79,7 +105,7 @@ def iter_test(shape, size=16):
     for p in shape:
         if field[p.x][p.y] == 'X':
             print(f"Got {p} more than just once")
-        field[p.x][p.y] = 'X'
+        field[p.y][p.x] = 'X'
     print("\n".join(map(lambda x: "".join(x), field)))
 
 def contains_iter_test(shape):
