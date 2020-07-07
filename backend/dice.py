@@ -1,11 +1,22 @@
-import ast
-import operator as op
+"""
+This module implements a parser and evaluator for dice-expressions.
+It also provides different type of dice for evaluation such expressions.
+
+Dice Types:
+    - normal: a dice whose results are all equally likely
+    - gauss
+    - lowest: always rolls the lowest possible result 1
+    - highest: always rolls the highest possible result n
+    - expected: always rolls the expected average of a normal dice
+"""
+
 
 import random
 import re
 
 
-def dice(n):
+# ================== Dices ================== #
+def normal(n):
     """
     Roll a normal n sided dice.
     """
@@ -32,12 +43,39 @@ def __gaussint(lower, upper, sigma=1, radius=3):
     return lower + int(value // step)
 
 
-def gauss_dice(n):
+def gauss(n):
+    """
+    Roll a n sided dice who follows a normal distribution.
+    """
     return __gaussint(1, n)
 
 
-__dice_pattern = re.compile("([1-9]\d*)?d([1-9]\d*)")
-def roll(expr, dice=dice):
+def lowest(n):
+    """
+    Return ´1´.
+    """
+    return 1
+
+
+def highest(n):
+    """
+    Return ´n´.
+    """
+    return n
+
+
+def expected(n):
+    """
+    Return half of ´n´.
+    """
+    return n//2
+
+
+# ================== Evaluator ================== #
+__dice_pattern = re.compile(r"([1-9]\d*)?d([1-9]\d*)")
+
+
+def roll(expr, dice=normal):
     # find all dice operations
     matches = []
     match = __dice_pattern.search(expr)
