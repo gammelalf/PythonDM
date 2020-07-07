@@ -1,4 +1,4 @@
-from .coords import Point, position_argument_at
+from .coords import position_argument_at
 from .character import Character
 
 
@@ -26,8 +26,8 @@ class DictBord(dict):
 
     @position_argument_at(1)
     def get_character(self, pos):
-        if position in self:
-            return self[position]
+        if pos in self:
+            return self[pos]
         else:
             return None
 

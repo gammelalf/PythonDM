@@ -1,15 +1,15 @@
 from math import sqrt
 
 from .coords import Point
-from .coords import position_argument_at as paa
+from .coords import position_argument_at
 
 
 class Shape:
 
     def __iter__(self):
-        raise NotImplemented
+        raise NotImplementedError
 
-    @paa(1)
+    @position_argument_at(1)
     def __contains__(self, point):
         return point in iter(self)
 
@@ -18,8 +18,8 @@ class Line(Shape):
 
     __slots__ = ["pos1", "pos2"]
 
-    @paa(1)
-    @paa(2)
+    @position_argument_at(1)
+    @position_argument_at(2)
     def __init__(self, pos1, pos2):
         self.pos1 = pos1
         self.pos2 = pos2
@@ -42,7 +42,7 @@ class Circle(Shape):
 
     __slots__ = ["pos", "r"]
 
-    @paa(1)
+    @position_argument_at(1)
     def __init__(self, position, radius):
         self.pos = position
         self.r = radius
@@ -62,7 +62,7 @@ class Circle(Shape):
                 else:
                     break
 
-    @paa(1)
+    @position_argument_at(1)
     def __contains__(self, point):
         return abs(point - self.pos) <= self.r
 
@@ -74,8 +74,8 @@ class Rect(Shape):
 
     __slots__ = ["pos1", "pos2"]
 
-    @paa(1)
-    @paa(2)
+    @position_argument_at(1)
+    @position_argument_at(2)
     def __init__(self, pos1, pos2):
         x1, x2 = pos1.x, pos2.x
         y1, y2 = pos1.y, pos2.y
@@ -91,7 +91,7 @@ class Rect(Shape):
             for y in range(self.pos1.y, self.pos2.y+1):
                 yield Point(x, y)
 
-    @paa(1)
+    @position_argument_at(1)
     def __contains__(self, point):
         return self.pos1.x <= point.x and point.x <= self.pos2.x \
            and self.pos1.y <= point.y and point.y <= self.pos2.y
@@ -108,8 +108,10 @@ def iter_test(shape, size=16):
         field[p.y][p.x] = 'X'
     print("\n".join(map(lambda x: "".join(x), field)))
 
+
 def contains_iter_test(shape):
     for p in shape:
         if p not in shape:
-            print(f"{p} is returned by the iterator, but __contains__ returns False")
+            print(f"{p} is returned by the iterator, "
+                  "but __contains__ returns False")
     print("If you see only this, then everything is fine")

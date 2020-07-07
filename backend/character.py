@@ -1,6 +1,3 @@
-import json
-import os
-
 from .dice import roll
 from .dice import gauss as gauss_dice
 from .dice import normal as dice
@@ -48,7 +45,7 @@ class Initiative(list):
             self.append(self._roll())
 
         return super().__getitem__(n)
-    
+
     def __lt__(self, obj, n=0):
         if self[n] == obj[n]:
             return self.__lt__(obj, n+1)

@@ -2,6 +2,7 @@ import json
 import os
 import sys
 
+
 def real_path(path):
     """
     Make a path who is relative to this project's directory
@@ -52,9 +53,11 @@ class Context:
 
     def _enter(self):
         if Context.__globals__ is None:
-            raise RuntimeError("Reference to globals dict not set. Try running \"Context.set_globals(globals())\".")
+            raise RuntimeError("Reference to globals dict not set. "
+                               'Try running "Context.set_globals(globals())".')
         if Context.__cur_con__ is not None:
-            raise RuntimeError("You already are in a context. Leave it before entering a new one.")
+            raise RuntimeError("You already are in a context. Leave it before "
+                               "entering a new one.")
 
         for key, value in self.__dict__.items():
             Context.__globals__[key] = value
@@ -66,7 +69,8 @@ class Context:
 
     def _exit(self):
         if Context.__cur_con__ is not self:
-            raise RuntimeError("You are not in this context, you can't leave it.")
+            raise RuntimeError("You are not in this context, "
+                               "you can't leave it.")
 
         for key in self.__dict__:
             del Context.__globals__[key]
@@ -74,6 +78,7 @@ class Context:
 
     def __exit__(self, type, value, traceback):
         self._exit()
+
 
 if __name__ == "__main__":
     Context.set_globals(globals())

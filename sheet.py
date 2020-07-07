@@ -59,7 +59,7 @@ class Skills:
 
     __skill2attr__ = json_load("data/skills.json")
     __slots__ = ["__sheet__", "__skills__"] \
-                + list(__skill2attr__.keys()) # For tab completion
+        + list(__skill2attr__.keys())  # For tab completion
 
     def __init__(self, sheet):
         self.__sheet__ = sheet
@@ -77,7 +77,8 @@ class Skills:
 class SavingThrows:
 
     __slots__ = ["__sheet__", "__saving_throws__",
-                "str", "dex", "con", "int", "wis", "cha"] # For tab completion
+                 # For tab completion:
+                 "str", "dex", "con", "int", "wis", "cha"]
 
     def __init__(self, sheet):
         self.__sheet__ = sheet
@@ -90,7 +91,6 @@ class SavingThrows:
             return getattr(self.__sheet__, key)
         else:
             raise AttributeError(key)
-
 
 
 class SheetDirectory:

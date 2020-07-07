@@ -4,6 +4,7 @@ from util import Context
 from backend.character import Character
 from sheet import Sheet
 
+
 class Battle(Context):
 
     def __init__(self):

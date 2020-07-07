@@ -1,4 +1,3 @@
-from math import sqrt
 from functools import wraps
 
 
@@ -12,13 +11,23 @@ def position_argument_at(index):
 
             # Convert to list for easier manipulation
             args = list(args)
-            if isinstance(args[index], tuple) and len(args[index]) == 2:
+
+            # If got 2-tuple
+            if isinstance(args[index], tuple) \
+                    and len(args[index]) == 2:
                 args[index] = Point(args[index][0], args[index][1])
-            elif isinstance(args[index], int) and isinstance(args[index+1], int):
+
+            # If got two integers
+            elif isinstance(args[index], int) \
+                    and isinstance(args[index+1], int):
                 args[index] = Point(args[index], args[index+1])
                 del args[index+1]
+
+            # Raise TypeError
             else:
-                raise TypeError(f"unsupported position argument type: '{type(args[index])}'")
+                raise TypeError("unsupported type for a position argument: "
+                                f"'{type(args[index])}'")
+
             return func(*args, **kwargs)
         return decorated_func
     return decorator
