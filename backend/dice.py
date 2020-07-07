@@ -2,6 +2,7 @@ import ast
 import operator as op
 
 import random
+import re
 
 
 def dice(n):
@@ -35,41 +36,35 @@ def gauss_dice(n):
     return __gaussint(1, n)
 
 
+__dice_pattern = re.compile("([1-9]\d*)?d([1-9]\d*)")
 def roll(expr, dice=dice):
-    """
-    Evaluate an expression containing dice rolls.
-    To roll a dice, use the optional function
-    which takes the number of sides as an argument.
+    # find all dice operations
+    matches = []
+    match = __dice_pattern.search(expr)
+    while match is not None:
+        matches.append(match)
+        match = __dice_pattern.search(expr, match.span()[1])
 
-    zB "2d6+2"
-    """
-    def m_dice(m, n):
-        return sum(dice(n) for i in range(m))
+    # roll them
+    rolls = []
+    for match in matches:
+        # get the values for n, m in the expression ndm
+        if match.group(1) is None:
+            m = 1
+        else:
+            m = int(match.group(1))
+        n = int(match.group(2))
 
-    expr = expr.replace("+", "@")
-    expr = expr.replace("d", "+")
+        # perform the rolls
+        rolls.append(sum([dice(n) for i in range(m)]))
 
-    op_dict = {ast.Add: m_dice,      # <m> d <n>
-               ast.UAdd: dice,       # d <n>
-               ast.MatMult: op.add,  # <a> + <b>
-               ast.Sub: op.sub,      # <a> - <b>
-               ast.USub: op.neg}     # - <a>
+    # Recreate the expression but replace dice operations with their results
+    rolled_expr = ""
+    end = 0
+    for i, match in enumerate(matches):
+        rolled_expr += expr[end:match.start()]
+        rolled_expr += str(rolls[i])
+        end = match.end()
+    rolled_expr += expr[end:]
 
-    return __eval(ast.parse(expr, mode="eval").body, op_dict)
-
-
-def __eval(node, op_dict):
-    if isinstance(node, ast.Num):
-        return node.n
-    elif isinstance(node, ast.BinOp):
-        args = (node.left, node.right)
-    elif isinstance(node, ast.UnaryOp):
-        args = (node.operand, )
-    else:
-        raise TypeError(f"Not a operator: {node}")
-
-    args = tuple(map(lambda x: __eval(x, op_dict), args))
-    try:
-        return op_dict[type(node.op)](*args)
-    except KeyError:
-        raise TypeError(f"Unsupported operator: {type(node.op)}")
+    return eval(rolled_expr)
