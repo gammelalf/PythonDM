@@ -36,9 +36,6 @@ class DictBord(dict):
         if new_pos in self:
             raise ValueError("Position is already occupied")
         else:
-            try:
+            if char.position in self:
                 del self[char.position]
-            except TypeError:
-                # The character didn't have any position yet
-                pass
             self[new_pos] = char
