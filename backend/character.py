@@ -35,6 +35,7 @@ class Character(object):
 class Initiative(list):
 
     def __init__(self, roll_func):
+        super().__init__()
         self._roll = roll_func
 
     def __getitem__(self, n):

@@ -23,7 +23,7 @@ def normal(n):
     return random.randint(1, n)
 
 
-def __gaussint(lower, upper, sigma=1, radius=3):
+def __gauss_int(lower, upper, sigma=1, radius=3):
     """
     Like random.randint but with a normal distribution
 
@@ -47,7 +47,7 @@ def gauss(n):
     """
     Roll a ´n´ sided dice who follows a normal distribution.
     """
-    return __gaussint(1, n)
+    return __gauss_int(1, n)
 
 
 def lowest(n):

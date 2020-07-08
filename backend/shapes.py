@@ -93,8 +93,7 @@ class Rect(Shape):
 
     @position_argument_at(1)
     def __contains__(self, point):
-        return self.pos1.x <= point.x and point.x <= self.pos2.x \
-           and self.pos1.y <= point.y and point.y <= self.pos2.y
+        return self.pos1.x <= point.x <= self.pos2.x and self.pos1.y <= point.y <= self.pos2.y
 
     def __repr__(self):
         return f"Rect({repr(self.pos1)}, {repr(self.pos2)})"

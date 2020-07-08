@@ -33,7 +33,7 @@ class Context:
         else:
             cur_con = Context.__cur_con__
             cur_con.exit()
-            Context.set_globals(global_dict)
+            Context._set_globals(global_dict)
             cur_con.enter()
 
     @staticmethod
@@ -54,7 +54,7 @@ class Context:
     def _enter(self):
         if Context.__globals__ is None:
             raise RuntimeError("Reference to globals dict not set. "
-                               'Try running "Context.set_globals(globals())".')
+                               'Try running "Context._set_globals(globals())".')
         if Context.__cur_con__ is not None:
             raise RuntimeError("You already are in a context. Leave it before "
                                "entering a new one.")
@@ -81,4 +81,4 @@ class Context:
 
 
 if __name__ == "__main__":
-    Context.set_globals(globals())
+    Context._set_globals(globals())

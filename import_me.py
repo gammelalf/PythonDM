@@ -8,7 +8,7 @@ from util import real_path, Context
 
 # Load sheets
 sheets = SheetDirectory(real_path("sheets"))
-enemys = sheets.enemys
+enemies = sheets.enemies
 
 
 # Put all sheets from sheets/players/ as Characters into a list
