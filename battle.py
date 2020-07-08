@@ -1,11 +1,10 @@
 from collections import defaultdict
 
-from util import Context
 from backend.character import Character
 from sheet import Sheet
 
 
-class Battle(Context):
+class Battle(object):
 
     def __init__(self):
         # For sorting by initiative and iterating
@@ -37,10 +36,10 @@ class Battle(Context):
             self._add(*char)
 
         elif isinstance(char, Sheet):
-            self._add_single(Character(char))
+            self.__add_single(Character(char))
 
         elif isinstance(char, Character):
-            self._add_single(char)
+            self.__add_single(char)
 
         else:
             raise TypeError(type(char))
@@ -48,7 +47,7 @@ class Battle(Context):
         if len(chars) != 0:
             self._add(*chars)
 
-    def _add_single(self, char):
+    def __add_single(self, char):
         """
         Add a single character to the battle
         """

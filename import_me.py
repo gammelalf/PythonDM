@@ -3,7 +3,7 @@ from backend.character import Player
 
 from battle import Battle
 from sheet import SheetDirectory
-from util import real_path, Context
+from util import real_path
 
 
 # Load sheets
@@ -11,25 +11,12 @@ sheets = SheetDirectory(real_path("sheets"))
 enemies = sheets.enemies
 
 
-# Put all sheets from sheets/players/ as Characters into a list
-players = []
-for player in sheets.players.__dict__:
-    players.append(Player(getattr(sheets.players, player)))
-
-
-# Clear namespace
-del player
-
-
 # Get a fresh new Battle object with the players already added
 def reset_battle():
     global battle
     battle = Battle()
-    battle._add(players)
+    for player in sheets.players.__dict__:
+        battle._add(Player(getattr(sheets.players, player)))
 
 
 reset_battle()
-
-
-# Enable Contexts
-Context._set_globals(globals())
