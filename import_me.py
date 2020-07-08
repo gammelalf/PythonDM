@@ -2,18 +2,19 @@ import backend
 from backend import *
 from backend.character import Player
 from backend.battle import Battle
-from backend.sheet import SheetDirectory
 from backend.util import real_path
+from backend.character import Character
 
-from exposer import Exposer
+from exposer import Exposer, wrap_class
 
 
-def Battle(*chars):
-    return Exposer(backend.battle.Battle(*chars))
+wrap_class(Battle)
+wrap_class(Player)
+wrap_class(Character)
 
 
 # Load sheets
-sheets = SheetDirectory(real_path("sheets"))
+sheets = backend.sheet.SheetDirectory(real_path("sheets"))
 enemies = sheets.enemies
 
 

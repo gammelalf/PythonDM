@@ -7,6 +7,8 @@ from .util import json_load
 class Sheet(object):
 
     def __init__(self, path=None):
+        self.__path = path
+
         self.name = ""
 
         self.size = "Medium"
@@ -43,6 +45,9 @@ class Sheet(object):
             self.__dict__.update(json_load(path))
         self.skills = Skills(self)
         self.saving_throws = SavingThrows(self)
+
+    def __repr__(self):
+        return f"Sheet({self.__path})"
 
     def __str__(self):
         return f"""

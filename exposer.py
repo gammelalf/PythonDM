@@ -1,3 +1,6 @@
+from functools import wraps
+
+
 class PointBack:
     """
     It's basicly a namespace which just gives any actual request for a function
@@ -52,16 +55,61 @@ class Exposer(object):
         return str(self.__wrapped)
 
 
+# Save references to the builtin functions
 builtin_setattr = setattr
+builtin_isinstance = isinstance
 
 
 def custom_setattr(obj, key, value):
+    """
+    If the object has an Exposer attached, give it the new argument
+    before adding it to the object itself.
+    """
     if hasattr(obj, "_Exposer__exposer") and not key.startswith("_"):
         if callable(value):
             setattr(getattr(obj, "_Exposer__exposer").func, key, None)
         else:
             setattr(getattr(obj, "_Exposer__exposer").attr, key, None)
+
     builtin_setattr(obj, key, value)
 
 
+def custom_isinstance(obj, class_or_tuple):
+    """
+    If the obj is an Exposer call isinstance on the wrapped object instead of the Exposer.
+    """
+    if builtin_isinstance(obj, Exposer):
+        return isinstance(obj._Exposer__wrapped, class_or_tuple)
+    else:
+        return builtin_isinstance(obj, class_or_tuple)
+
+
+# Override the builtin functions
 globals()["__builtins__"]["setattr"] = custom_setattr
+globals()["__builtins__"]["isinstance"] = custom_isinstance
+
+
+def wrap_class(cls):
+    """
+    Override a class' __new__ and __init__ functions to wrap the new object
+    with an Exposer before returning it.
+    """
+    old_new = cls.__new__
+    old_init = cls.__init__
+
+    @wraps(old_new)
+    def new_new(cls, *args, **kwargs):
+        if old_new is object.__new__:
+            obj = old_new(cls)
+        else:
+            obj = old_new(cls, *args, **kwargs)
+
+        old_init(obj, *args, **kwargs)
+        return Exposer(obj)
+
+    @wraps(old_init)
+    def new_init(self, *args, **kwargs):
+        pass
+
+    cls.__new__ = new_new
+    cls.__init__ = new_init

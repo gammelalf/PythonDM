@@ -22,6 +22,9 @@ class Character(object):
         return self.name.lower().replace(" ", "_")
 
     def __repr__(self):
+        return f"{self.__class__.__name__}({self.name})"
+
+    def __str__(self):
         return f"{self.name} ({self.hp} / {self.max_hp})"
 
     def roll_initiative(self):
