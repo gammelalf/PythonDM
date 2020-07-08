@@ -6,14 +6,20 @@ from .sheet import Sheet
 
 class Battle(object):
 
-    def __init__(self):
+    def __init__(self, *chars):
         # For sorting by initiative and iterating
         self.__list__ = []
 
         # For counting of names
         self.__names__ = defaultdict(int)
 
+        if len(chars) != 0:
+            self.add(*chars)
+
     def __repr__(self):
+        return f"Battle({self.__list__})"
+
+    def __str__(self):
         return "\n".join(map(repr, self))
 
     def __iter__(self):
