@@ -4,7 +4,7 @@ It also provides different type of dice for evaluation such expressions.
 
 Dice Types:
     - normal: a dice whose results are all equally likely
-    - gauss
+    - gauss: a dice whose results follow a normal distribution
     - lowest: always rolls the lowest possible result 1
     - highest: always rolls the highest possible result n
     - expected: always rolls the expected average of a normal dice
