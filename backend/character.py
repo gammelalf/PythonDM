@@ -14,17 +14,17 @@ class Character(object):
             self.max_hp = roll(self.max_hp, gauss_dice)
         self.hp = self.max_hp
 
-        self.initiative = Initiative(self._roll_initiative)
+        self.initiative = Initiative(self.roll_initiative)
         self.position = None
 
     @property
-    def _global_name(self):
+    def global_name(self):
         return self.name.lower().replace(" ", "_")
 
     def __repr__(self):
         return f"{self.name} ({self.hp} / {self.max_hp})"
 
-    def _roll_initiative(self):
+    def roll_initiative(self):
         """
         Roll for initiative and simply return the rolled value
         (possibly with modifiers)
@@ -65,6 +65,6 @@ class Initiative(list):
 
 class Player(Character):
 
-    def _roll_initiative(self):
+    def roll_initiative(self):
         print(f"{self.name}'s initiative:")
         return int(input())

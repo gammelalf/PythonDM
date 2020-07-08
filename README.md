@@ -1,13 +1,5 @@
 # PythonDM
 
-## Conventions
-
-### Attribute naming:
-
-- names the user shouldn't be concerned about, start with a double "\_"
-- functions the user should use, start with a single "\_"
-- attribute the user should access, start without a "\_"
-
 ## Dice
 
 This tool provides the function "roll(expr)" for evaluating dice containing expressions.
@@ -53,7 +45,7 @@ A battle is a collection of characters.
 
 To add characters, use the function
 ```python
-battle._add(character)
+battle.add(character)
 ```
 It takes any number of arguments. These can be:
 
@@ -64,7 +56,7 @@ It takes any number of arguments. These can be:
 
 To sort the characters by their initiative (and make them determine it in the first place) use:
 ```python
-battle._order()
+battle.order()
 ```
 
 For player rolls, the script will ask for input.

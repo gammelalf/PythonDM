@@ -1,7 +1,7 @@
 import os
 
-from backend.character import Character
-from util import json_load
+from .character import Character
+from .util import json_load
 
 
 class Sheet(object):
