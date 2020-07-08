@@ -5,6 +5,10 @@ from .sheet import Sheet
 
 
 class Battle(object):
+    """
+    A Battle contains a bunch of characters who are fighting each other.
+    It can also sort them by their initiative.
+    """
 
     def __init__(self, *chars):
         # For sorting by initiative and iterating
@@ -20,7 +24,7 @@ class Battle(object):
         return f"Battle({self.__list__})"
 
     def __str__(self):
-        return "\n".join(map(repr, self))
+        return "\n".join(map(str, self))
 
     def __iter__(self):
         return iter(self.__list__)

@@ -2,6 +2,27 @@ from functools import wraps
 
 
 def position_argument_at(index):
+    """
+    This decorator ensures that the decorated function recieves a valid position
+    as the ´index´-th argument. It will look at the arument in question
+    and try to convert it into a Point object.
+
+    !!! None is treated as a valid position !!!
+
+    Currently this accepts 3 kinds of arguments as valid positions:
+        - already a Point object
+        - a tuple of length two
+        - two integers (looking at the following given argument)
+
+    Example:
+    > @position_argument_at(0):
+    > def example(positon):
+    >    return position
+    >
+    > example(Point(0, 0)) # valid
+    > example((0, 0))      # valid
+    > example(0, 0)        # valid
+    """
     def decorator(func):
         @wraps(func)
         def decorated_func(*args, **kwargs):
@@ -59,11 +80,22 @@ class Point:
         return Point(self.x + obj.x, self.y + obj.y)
 
     @position_argument_at(1)
+    def __radd__(self, obj):
+        return obj + self
+
+    @position_argument_at(1)
     def __sub__(self, obj):
         return Point(self.x - obj.x, self.y - obj.y)
 
+    @position_argument_at(1)
+    def __rsub__(self, obj):
+        return obj - self
+
     def __mul__(self, obj):
         return Point(round(self.x * obj), round(self.y * obj))
+
+    def __rmul__(self, obj):
+        return self * obj
 
     def __abs__(self):
         x = abs(self.x)
