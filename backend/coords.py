@@ -26,8 +26,10 @@ def position_argument_at(index):
     def decorator(func):
         @wraps(func)
         def decorated_func(*args, **kwargs):
+            # If the argument in question is not given, it is probably optional and SHOULD already be a point.
             # If the argument is already a Point, no action is needed
-            if isinstance(args[index], Point) or args[index] is None:
+            if len(args) <= index \
+                    or isinstance(args[index], Point) or args[index] is None:
                 return func(*args, **kwargs)
 
             # Convert to list for easier manipulation
