@@ -2,7 +2,21 @@ from .coords import position_argument_at
 from .character import Character
 
 
-class DictBord(dict):
+class Bord:
+
+    @position_argument_at(1)
+    def get_character(self, pos):
+        raise NotImplementedError()
+
+    def iter_characters(self):
+        pass
+
+    @position_argument_at(2)
+    def move(self, char, new_pos):
+        raise NotImplementedError()
+
+
+class DictBord(dict, Bord):
 
     @position_argument_at(1)
     def __getitem__(self, pos):
@@ -23,6 +37,9 @@ class DictBord(dict):
             super().__delitem__(pos)
         else:
             raise KeyError("position is already unoccupied")
+
+    def iter_characters(self):
+        return iter(self.values())
 
     @position_argument_at(1)
     def get_character(self, pos):
