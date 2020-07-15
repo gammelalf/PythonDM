@@ -72,41 +72,57 @@ def expected(n):
 
 
 # ================== Evaluator ================== #
-__dice_pattern = re.compile(r"([1-9]\d*)?d([1-9]\d*)")
-
-
 def roll(expr, dice=normal):
     """
     Evaluate all dice operations in the expression using the given ´dice´
     and hand the rest to python's eval function.
     """
-    # find all dice operations
-    matches = []
-    match = __dice_pattern.search(expr)
-    while match is not None:
-        matches.append(match)
-        match = __dice_pattern.search(expr, match.span()[1])
+    # Tokenize
+    tokens = __tokens.findall(expr)
 
-    # roll them
-    rolls = []
-    for match in matches:
-        # get the values for n, m in the expression ndm
-        if match.group(1) is None:
-            m = 1
-        else:
-            m = int(match.group(1))
-        n = int(match.group(2))
+    # There should be some
+    if len(tokens) == 0:
+        raise ValueError(f"The string contains no expression: {repr(expr)}")
 
-        # perform the rolls
-        rolls.append(sum([dice(n) for i in range(m)]))
+    # Convert to integers
+    for i, token in enumerate(tokens):
+        if token not in __operations.keys():
+            tokens[i] = int(token)
 
-    # Recreate the expression but replace dice operations with their results
-    rolled_expr = ""
-    end = 0
-    for i, match in enumerate(matches):
-        rolled_expr += expr[end:match.start()]
-        rolled_expr += str(rolls[i])
-        end = match.end()
-    rolled_expr += expr[end:]
+    for op in __operations.keys():
+        while op in tokens:
+            i = tokens.index(op)
+            if op == "d" and i+2 < len(tokens) and tokens[i+2] == "d":
+                raise SyntaxError("Two dice operations directly one after another are prohibited")
+            if i == 0 or tokens[i-1] in __operations.keys():
+                y = tokens.pop(i+1)
+                tokens[i] = __operations[op](dice, y)
+            elif i == len(tokens)-1 or tokens[i+1] in __operations.keys():
+                raise SyntaxError(f"The operator {op} is missing an operand: {repr(tokens)}")
+            else:
+                y = tokens.pop(i+1)
+                x = tokens.pop(i-1)
+                tokens[i-1] = __operations[op](dice, y, x)
 
-    return eval(rolled_expr)
+    return tokens[0]
+
+
+# Tokens:
+# d, +, -, a positiv integer
+__tokens = re.compile(r"d|\+|\-|[1-9]\d*|(?!\s*)")
+
+
+# Operations:
+def __add(dice, y, x=0):
+    return x + y
+
+
+def __sub(dice, y, x=0):
+    return x - y
+
+
+def __dice(dice, y, x=1):
+    return sum([dice(y) for i in range(x)])
+
+
+__operations = {"d": __dice, "-": __sub, "+": __add}
