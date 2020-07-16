@@ -1,7 +1,9 @@
 from collections import defaultdict
 
-from .character import Character
-from .sheet import Sheet
+from backend.character import Character
+from backend.character import Initiative
+from backend.character import Player
+from backend.sheet import Sheet
 
 
 class Battle(object):
@@ -11,6 +13,8 @@ class Battle(object):
     """
 
     def __init__(self, *chars):
+        self.__players__ = {}
+
         # For sorting by initiative and iterating
         self.__list__ = []
 
@@ -77,6 +81,8 @@ class Battle(object):
 
         # Add the creature
         self.__list__.append(char)
+        if isinstance(char, Player):
+            self.__players__[char.global_name] = char
         setattr(self, char.global_name, char)
 
     def remove(self, char, *chars):
@@ -92,8 +98,37 @@ class Battle(object):
         if len(chars) != 0:
             self.remove(*chars)
 
-    def order(self, roll=True):
+    def __get_player_from_abbr(self, abbr):
         """
-        Order combatants in list by initiative
+        Get a player from an abbreviation of his name
         """
+        # Initialize lookup for abbreviated names
+        for length in range(100):
+            lookup = {}
+            for name, player in self.__players__.items():
+                if len(name) <= length:
+                    key = name.lower()
+                else:
+                    key = name[:length].lower()
+                if key in lookup:
+                    break
+                lookup[key] = player
+            else:
+                break
+        return lookup[abbr[:length].lower()]
+
+    def roll_initiative(self, roll=True):
+        """
+        Roll initiatives and order combatants in list by initiative
+        """
+        # Clean old initiatives
+        for char in self.__list__:
+            char.initiative = Initiative(char.roll_initiative)
+
+        # Add players' first rolls
+        for i in range(len(self.__players__)):
+            name, value = input().split(" ")
+            value = int(value)
+            self.__get_player_from_abbr(name).initiative.append(value)
+
         self.__list__.sort(key=lambda x: x.initiative, reverse=True)

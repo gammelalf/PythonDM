@@ -1,16 +1,9 @@
 import backend
-from backend import *
 from backend.character import Player
-from backend.battle import Battle
 from backend.util import real_path
 from backend.character import Character
 
-from exposer import Exposer, wrap_class
-
-
-wrap_class(Battle)
-wrap_class(Player)
-wrap_class(Character)
+from frontend.battle import Battle
 
 
 # Load sheets
