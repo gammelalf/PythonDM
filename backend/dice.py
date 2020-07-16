@@ -72,10 +72,28 @@ def expected(n):
 
 
 # ================== Evaluator ================== #
+def __add(dice, y, x=0):
+    return x + y
+
+
+def __sub(dice, y, x=0):
+    return x - y
+
+
+def __dice(dice, y, x=1):
+    if x == 1:
+        return dice(y)
+    else:
+        return sum([dice(y) for i in range(x)])
+
+
+__tokens = re.compile(r"d|\+|\-|[1-9]\d*|(?!\s*)")
+__operations = {"d": __dice, "-": __sub, "+": __add}
+
+
 def roll(expr, dice=normal):
     """
-    Evaluate all dice operations in the expression using the given ´dice´
-    and hand the rest to python's eval function.
+    Evaluate a dice expression using the given ´dice´
     """
     # Tokenize
     tokens = __tokens.findall(expr)
@@ -107,22 +125,57 @@ def roll(expr, dice=normal):
     return tokens[0]
 
 
-# Tokens:
-# d, +, -, a positiv integer
-__tokens = re.compile(r"d|\+|\-|[1-9]\d*|(?!\s*)")
+# ================== Compiler ================== #
+class Operation:
+
+    def __init__(self, op, right, left=None):
+        self.op = op
+        self.right = right
+        self.left = left
+
+    def __call__(self, dice):
+        if self.left is None:
+            return self.op(dice, self.right(dice))
+        else:
+            return self.op(dice, self.right(dice), self.left(dice))
 
 
-# Operations:
-def __add(dice, y, x=0):
-    return x + y
+class Const:
+
+    def __init__(self, const):
+        self.const = const
+
+    def __call__(self, dice):
+        return self.const
 
 
-def __sub(dice, y, x=0):
-    return x - y
+def compile(expr):
+    """
+    Compile a dice expression and return a callable object which takes a dice to evaluate the original expression
+    """
+    # Tokenize
+    tokens = __tokens.findall(expr)
 
+    # There should be some
+    if len(tokens) == 0:
+        raise ValueError(f"The string contains no expression: {repr(expr)}")
 
-def __dice(dice, y, x=1):
-    return sum([dice(y) for i in range(x)])
+    # Convert to integers
+    for i, token in enumerate(tokens):
+        if token not in __operations.keys():
+            tokens[i] = Const(int(token))
 
+    for op in __operations.keys():
+        while op in tokens:
+            i = tokens.index(op)
+            if i == 0 or tokens[i-1] in __operations.keys():
+                y = tokens.pop(i+1)
+                tokens[i] = Operation(__operations[op], y)
+            elif i == len(tokens)-1 or tokens[i+1] in __operations.keys():
+                raise SyntaxError(f"The operator {op} is missing an operand: {repr(tokens)}")
+            else:
+                y = tokens.pop(i+1)
+                x = tokens.pop(i-1)
+                tokens[i-1] = Operation(__operations[op], y, x)
 
-__operations = {"d": __dice, "-": __sub, "+": __add}
+    return tokens[0]
