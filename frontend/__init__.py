@@ -5,7 +5,7 @@ from frontend.game import Game
 
 __all__ = ["sheets", "enemies", "__game", "new_battle", "battle_add"]
 
-sheets = backend.sheet.SheetDirectory(real_path("sheets"))
+sheets = backend.sheet.SheetDirectory(real_path("data/sheets"))
 enemies = sheets.enemies
 
 __game = Game(sheets.players)
