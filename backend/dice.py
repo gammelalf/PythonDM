@@ -126,27 +126,20 @@ def roll(expr, dice=normal):
 
 
 # ================== Compiler ================== #
-class Operation:
-
-    def __init__(self, op, right, left=None):
-        self.op = op
-        self.right = right
-        self.left = left
-
-    def __call__(self, dice):
-        if self.left is None:
-            return self.op(dice, self.right(dice))
-        else:
-            return self.op(dice, self.right(dice), self.left(dice))
+def operation(op, right, left=None):
+    if left is None:
+        def func(dice):
+            return op(dice, right(dice))
+    else:
+        def func(dice):
+            return op(dice, right(dice), left(dice))
+    return func
 
 
-class Const:
-
-    def __init__(self, const):
-        self.const = const
-
-    def __call__(self, dice):
-        return self.const
+def const(value):
+    def func(dice):
+        return value
+    return func
 
 
 def compile(expr):
@@ -163,19 +156,19 @@ def compile(expr):
     # Convert to integers
     for i, token in enumerate(tokens):
         if token not in __operations.keys():
-            tokens[i] = Const(int(token))
+            tokens[i] = const(int(token))
 
     for op in __operations.keys():
         while op in tokens:
             i = tokens.index(op)
             if i == 0 or tokens[i-1] in __operations.keys():
                 y = tokens.pop(i+1)
-                tokens[i] = Operation(__operations[op], y)
+                tokens[i] = operation(__operations[op], y)
             elif i == len(tokens)-1 or tokens[i+1] in __operations.keys():
                 raise SyntaxError(f"The operator {op} is missing an operand: {repr(tokens)}")
             else:
                 y = tokens.pop(i+1)
                 x = tokens.pop(i-1)
-                tokens[i-1] = Operation(__operations[op], y, x)
+                tokens[i-1] = operation(__operations[op], y, x)
 
     return tokens[0]
