@@ -2,8 +2,9 @@ from collections import defaultdict
 
 from backend.character import Character
 from backend.character import Initiative
-from backend.character import Player
 from backend.sheet import Sheet
+
+from .player import Player
 
 
 class Battle(object):

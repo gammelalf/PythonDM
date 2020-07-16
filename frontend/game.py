@@ -1,7 +1,8 @@
 from functools import wraps
 
 from .battle import Battle
-from backend.character import Player
+from .player import Player
+from backend.bords import DictBord
 
 
 class Game:
@@ -12,9 +13,13 @@ class Game:
             self.players.append(Player(getattr(players_sheetdir, sheet)))
 
         self.battle = Battle()
-        self.bord = None
+        self.bord = DictBord()
 
+    # ================== Battle ================== #
     def new_battle(self, add_players=True):
+        """
+        Initialize a new and fresh battle and dump the old one.
+        """
         self.battle = Battle()
         if add_players:
             self.battle.add(self.players)
@@ -24,4 +29,7 @@ class Game:
         self.battle.add(*args)
 
     def show_battle(self):
+        """
+        Print the battle
+        """
         print(str(self.battle))
