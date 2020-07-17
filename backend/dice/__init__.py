@@ -16,5 +16,6 @@ from .dices import lowest
 from .dices import highest
 from .dices import expected
 from .expression import roll
+from .expression import compile
 
-__all__ = ["normal", "gauss", "lowest", "highest", "expected", "roll"]
+__all__ = ["normal", "gauss", "lowest", "highest", "expected", "roll", "compile"]
