@@ -8,21 +8,6 @@ from functools import partial
 from .dices import normal
 
 
-def __add(dice, y, x=0):
-    return x + y
-
-
-def __sub(dice, y, x=0):
-    return x - y
-
-
-def __dice(dice, y, x=1):
-    if x == 1:
-        return dice(y)
-    else:
-        return sum([dice(y) for i in range(x)])
-
-
 __tokens = re.compile(r"d|\+|\-|[1-9]\d*|(?!\s*)")
 
 
@@ -74,24 +59,46 @@ def __parse(expr, operations, const):
     return tokens[0]
 
 
+def __add(dice, y, x=0):
+    return x + y
+
+
+def __sub(dice, y, x=0):
+    return x - y
+
+
+def __dice(dice, y, x=1):
+    if x == 1:
+        return dice(y)
+    else:
+        return sum([dice(y) for i in range(x)])
+
+
 def roll(expr, dice=normal):
     operations = {"d": partial(__dice, dice), "+": partial(__add, dice), "-": partial(__sub, dice)}
     return __parse(expr, operations, int)
 
 
+def __compile_const(value):
+    def func(dice):
+        return int(value)
+
+    return func
+
+
+def __compile_operation(op, left, right=None):
+    def func(dice):
+        if right is None:
+            return op(dice, left(dice))
+        else:
+            return op(dice, left(dice), right(dice))
+    return func
+
+
+__compile_operations = {"d": partial(__compile_operation, __dice),
+                        "+": partial(__compile_operation, __add),
+                        "-": partial(__compile_operation, __sub)}
+
+
 def compile(expr):
-    def const(value):
-        def func(dice):
-            return int(value)
-        return func
-
-    def operation(op, left, right=None):
-        def func(dice):
-            if right is None:
-                return op(dice, left(dice))
-            else:
-                return op(dice, left(dice), right(dice))
-        return func
-
-    operations = {"d": partial(operation, __dice), "+": partial(operation, __add), "-": partial(operation, __sub)}
-    return __parse(expr, operations, const)
+    return __parse(expr, __compile_operations, __compile_const)
