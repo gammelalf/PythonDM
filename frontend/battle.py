@@ -14,25 +14,23 @@ class Battle(object):
     """
 
     def __init__(self, *chars):
-        self.__players__ = {}
-
         # For sorting by initiative and iterating
-        self.__list__ = []
+        self.list = []
+
+        # For easy access
+        self.dict = {}
 
         # For counting of names
-        self.__names__ = defaultdict(int)
+        self.names = defaultdict(int)
 
         if len(chars) != 0:
             self.add(*chars)
-
-    def __repr__(self):
-        return f"Battle({self.__list__})"
 
     def __str__(self):
         return "\n".join(map(str, self))
 
     def __iter__(self):
-        return iter(self.__list__)
+        return iter(self.list)
 
     def add(self, char, *chars):
         """
@@ -67,32 +65,30 @@ class Battle(object):
         Add a single character to the battle
         """
         # Increase name counter
-        self.__names__[char.name] += 1
+        self.names[char.name] += 1
 
         # If creature is second, label the first
-        if self.__names__[char.name] == 2:
-            first = getattr(self, char.global_name)
-            delattr(self, first.global_name)
+        if self.names[char.name] == 2:
+            first = self.dict[char.global_name]
+            del self.dict[first.global_name]
             first.name += " 1"
-            setattr(self, first.global_name, first)
+            self.dict[first.global_name] = first
 
         # If creature isn't the first, label it
-        if self.__names__[char.name] > 1:
-            char.name += f" {self.__names__[char.name]}"
+        if self.names[char.name] > 1:
+            char.name += f" {self.names[char.name]}"
 
         # Add the creature
-        self.__list__.append(char)
-        if isinstance(char, Player):
-            self.__players__[char.global_name] = char
-        setattr(self, char.global_name, char)
+        self.list.append(char)
+        self.dict[char.global_name] = char
 
     def remove(self, char, *chars):
         """
         Remove a character from the battle
         """
         if isinstance(char, Character):
-            self.__list__.remove(char)
-            delattr(self, char.global_name)
+            self.list.remove(char)
+            del self.dict[char.global_name]
         else:
             raise TypeError()
 
@@ -118,18 +114,13 @@ class Battle(object):
                 break
         return lookup[abbr[:length].lower()]
 
-    def roll_initiative(self, roll=True):
-        """
-        Roll initiatives and order combatants in list by initiative
-        """
-        # Clean old initiatives
-        for char in self.__list__:
-            char.initiative = Initiative(char.roll_initiative)
 
-        # Add players' first rolls
-        for i in range(len(self.__players__)):
-            name, value = input().split(" ")
-            value = int(value)
-            self.__get_player_from_abbr(name).initiative.append(value)
+class CharacterAccess:
 
-        self.__list__.sort(key=lambda x: x.initiative, reverse=True)
+    def __init__(self, battle):
+        self.__dict__ = battle.dict
+        self.__repr__ = battle.__str__
+
+    def __repr__(self):
+        return self.__repr__()
+
