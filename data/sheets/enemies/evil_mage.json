@@ -1,0 +1,38 @@
+{
+    "name": "Evil Mage",
+    "size": "Medium",
+    "race": "Humanoid (human)",
+    "alignment": [
+        "lawful",
+        "evil"
+    ],
+    "hp": "5d8",
+    "ac": 12,
+    "speed": {
+        "walk": 30
+    },
+    "str": -1,
+    "dex": 2,
+    "con": 0,
+    "int": 3,
+    "wis": 1,
+    "cha": 0,
+    "saving_throws": {
+		"int": 5,
+		"wis": 3
+	},
+    "skills": {
+		"arcana": 5,
+		"history": 5
+	},
+    "senses": {
+        "passive Perception": 11
+    },
+    "language": [
+        "Common",
+		"Draconic",
+		"Dwarven",
+		"Elvish"
+    ],
+    "challenge": 1
+}
