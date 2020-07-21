@@ -8,24 +8,24 @@ def normal(n):
     return random.randint(1, n)
 
 
-def __gauss_int(lower, upper, sigma=1, radius=3):
+def __gauss_int(lower, upper, sigma=1/6):
     """
     Like random.randint but with a normal distribution
 
-    Use random.gauss with ´sigma´ to get a random value on the x-axis.
-    The ´radius´ then defines the x-axis' portion
-    which will be mapped to the desired range.
-    If the value falls outside this portion,
-    it will be replaced by a new one.
-    """
-    value = random.gauss(radius, sigma)
-    while value < 0 or value > 2*radius:
-        value = random.gauss(sigma, radius)
-        # Uncomment for checking likeliness of reroll
-        # print("reroll")
+    Use random.gauss with the mean at 0 to get a random value.
+    Reroll until the value is between -r and r where r (also radius) is the middle of the lower and upper bound.
+    Add the radius, the lower bound and round to get an integer in [lower, upper].
 
-    step = 2*radius/(upper - lower + 1)
-    return lower + int(value // step)
+    The used standard variant (usually called sigma) is the product of the distance between the bounds
+    and the argument `sigma`. So doubling the range also doubles the distribution's spread.
+    """
+    radius = (upper-lower)/2
+
+    value = random.gauss(0, sigma*(upper-lower))
+    while not -radius < value < radius:
+        value = random.gauss(0, sigma*(upper-lower))
+
+    return round(value+radius+lower)
 
 
 def gauss(n):
