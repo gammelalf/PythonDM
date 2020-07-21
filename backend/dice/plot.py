@@ -1,6 +1,3 @@
-from functools import partial
-from functools import wraps
-from collections import defaultdict
 from math import exp
 from math import sqrt
 from math import tau
@@ -12,24 +9,106 @@ from .expression import compile
 from . import dices
 
 
-def __prec_range(lower, upper, prec=1):
-    for i in range(lower*prec, upper*prec+1):
-        yield i / prec
+class Distribution:
+
+    def __init__(self, prec=1):
+        self.xs = []
+        self.ys = []
+        self.prec = 1
+        self.rank = 1
+
+    @staticmethod
+    def from_dice(dice, prec, n):
+        self = Distribution()
+        for i in range(prec, n*prec+1):
+            i /= prec
+            self.xs.append(i)
+            self.ys.append(dice(i, n))
+        self.prec = prec
+        return self
+
+    @staticmethod
+    def get_operation(dice, prec):
+        def __dice(y, x=1):
+            if x == 1:
+                return Distribution.from_dice(dice, prec, y)
+            else:
+                s = 0
+                for i in range(x):
+                    s += Distribution.from_dice(dice, prec, y)
+                return s
+        return __dice
+
+    @property
+    def max(self):
+        return int(max(self.xs))
+
+    @property
+    def min(self):
+        return int(min(self.xs))
+
+    def copy(self):
+        new = Distribution()
+        new.xs = list(self.xs)
+        new.ys = list(self.ys)
+        new.prec = self.prec
+        new.rank = self.rank
+        return new
+
+    def normalize(self):
+        new = self.copy()
+        total = sum(new.ys)
+        for i in range(len(new.ys)):
+            new.ys[i] /= total
+        return new
+
+    def __add__(self, obj):
+        if isinstance(obj, int):
+            new = self.copy()
+            for i in range(len(new.xs)):
+                new.xs[i] += obj
+            return new
+        elif isinstance(obj, Distribution):
+            new = Distribution()
+            new.prec = self.prec
+            new.rank = self.rank + obj.rank
+            new.xs = list(range(self.min + obj.min, self.max + obj.max + 1))
+            new.ys = [0 for x in new.xs]
+
+            for self_x, self_y in zip(self.xs, self.ys):
+                for obj_x, obj_y in zip(obj.xs, obj.ys):
+                    new.ys[int((self_x + obj_x)*new.prec) - new.min] += obj.rank*self_y + self.rank*obj_y
+
+            print(new)
+            return new.normalize()
+        else:
+            raise TypeError()
+
+    def __radd__(self, obj):
+        return self.__add__(obj)
+
+    def __sub__(self, obj):
+        return self.__add__(- obj)
+
+    def __rsub__(self, obj):
+        return (- self).__add__(obj)
+
+    def __neg__(self):
+        new_dist = self.copy()
+        new_dist.xs = [-x for x in self.xs]
+        return new_dist
+
+    def __hash__(self):
+        return id(self)
+
+    def __repr__(self):
+        return f"Distribution(rank={self.rank}, min={self.min}, max={self.max})"
 
 
-def __create_dist(func):
-    @wraps(func)
-    def new_func(prec, n):
-        return tuple((i, func(i, n)) for i in __prec_range(1, n, prec))
-    return new_func
-
-
-@__create_dist
 def normal(i, n):
     return 1/n
 
 
-@__create_dist
 def gauss(i, n):
     x = i - (n+1)/2
     mu = 0
@@ -38,45 +117,11 @@ def gauss(i, n):
 
 
 def __add(y, x=0):
-    if isinstance(x, int) and isinstance(y, int):
-        return x + y
-    elif isinstance(x, int):
-        return tuple((key + x, value) for key, value in y)
-    elif isinstance(y, int):
-        return __add(x, y)
-    else:
-        s = defaultdict(float)
-        for x_k, x_v in x:
-            for y_k, y_v in y:
-                s[x_k + y_k] += x_v + y_v
-
-        return tuple(s.items())
+    return x + y
 
 
 def __sub(y, x=0):
-    if isinstance(x, int) and isinstance(y, int):
-        return x - y
-    elif isinstance(x, int):
-        return __add(y, -x)
-    elif isinstance(y, int):
-        return __add(-y, x)
-    else:
-        s = defaultdict(float)
-        for x_k, x_v in x:
-            for y_k, y_v in y:
-                s[x_k - y_k] += x_v + y_v
-
-        return tuple(s.items())
-
-
-def __dice(dice, y, x=1):
-    if x == 1:
-        return dice(y)
-    else:
-        s = 0
-        for i in range(x):
-            s = __add(dice(y), s)
-        return s
+    return x - y
 
 
 __dices_to_plot = {
@@ -89,35 +134,23 @@ def create(expr, prec=1, dice=normal):
     if dice in __dices_to_plot:
         dice = __dices_to_plot[dice]
 
-    operations = {"d": partial(__dice, partial(dice, prec)), "+": __add, "-": __sub}
-    dist = list(__parse(expr, operations, const=int))
-    dist.sort(key=lambda t: t[0])
+    operations = {"d": Distribution.get_operation(dice, prec), "+": __add, "-": __sub}
+    dist = __parse(expr, operations, const=int)
+    dist = dist.normalize()
 
-    x = [x for x, y in dist]
-    y = [y for x, y in dist]
-
-    # Normalize
-    print(sum(y))
-    total = sum(y)#/prec
-    for i in range(len(y)):
-        y[i] /= total
-    print(sum(y))
-
-    plot = plt.plot(x, y)
+    plot = plt.plot(dist.xs, dist.ys)
     return plot
 
 
-def create_by_rolling(expr, dice, n=10**3):
+def create_by_rolling(expr, dice, n=10**5):
     expr = compile(expr)
-    results = defaultdict(int)
+    results = dict((i, 0) for i in range(expr(dices.lowest), expr(dices.highest)+1))
+
     for i in range(n):
         results[expr(dice)] += 1
 
-    results = list(results.items())
-    results.sort(key=lambda x: x[0])
-
-    x = [x for x, y in results]
-    y = [y for x, y in results]
+    x = list(results.keys())
+    y = list(results.values())
 
     for i in range(len(y)):
         y[i] /= n
