@@ -17,7 +17,6 @@ class Distribution:
         self.xs = []
         self.ys = []
         self.prec = 1
-        self.rank = 1
 
     @staticmethod
     def from_dice(dice, prec, n):
@@ -54,14 +53,6 @@ class Distribution:
         new.xs = list(self.xs)
         new.ys = list(self.ys)
         new.prec = self.prec
-        new.rank = self.rank
-        return new
-
-    def normalize(self):
-        new = self.copy()
-        total = sum(new.ys)
-        for i in range(len(new.ys)):
-            new.ys[i] /= total
         return new
 
     def __add__(self, obj):
@@ -73,16 +64,14 @@ class Distribution:
         elif isinstance(obj, Distribution):
             new = Distribution()
             new.prec = self.prec
-            new.rank = self.rank + obj.rank
             new.xs = list(range(self.min + obj.min, self.max + obj.max + 1))
             new.ys = [0 for x in new.xs]
 
             for self_x, self_y in zip(self.xs, self.ys):
                 for obj_x, obj_y in zip(obj.xs, obj.ys):
-                    new.ys[int((self_x + obj_x)*new.prec) - new.min] += obj.rank*self_y + self.rank*obj_y
+                    new.ys[int((self_x + obj_x)*new.prec) - new.min] += self_y * obj_y
 
-            print(new)
-            return new.normalize()
+            return new
         else:
             raise TypeError()
 
@@ -104,7 +93,7 @@ class Distribution:
         return id(self)
 
     def __repr__(self):
-        return f"Distribution(rank={self.rank}, min={self.min}, max={self.max})"
+        return f"Distribution(min={self.min}, max={self.max})"
 
 
 def normal(i, n):
