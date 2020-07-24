@@ -1,12 +1,13 @@
 from math import exp
 from math import sqrt
 from math import tau
+from functools import partial
 
 from matplotlib import pyplot as plt
 
-from .expression import __parse
-from .expression import __add
-from .expression import __sub
+from .expression import __parse as parse
+from .expression import __add as add
+from .expression import __sub as sub
 from .expression import compile
 from . import dices
 
@@ -20,6 +21,12 @@ class Distribution:
 
     @staticmethod
     def from_dice(dice, prec, n):
+        """
+        Create a distribution using a dice function.
+
+        This function takes a number in the dices range and the amount of sides
+        and returns the probability of rolling that number.
+        """
         self = Distribution()
         for i in range(prec, n*prec+1):
             i /= prec
@@ -29,16 +36,29 @@ class Distribution:
         return self
 
     @staticmethod
-    def get_operation(dice, prec):
-        def __dice(y, x=1):
-            if x == 1:
-                return Distribution.from_dice(dice, prec, y)
-            else:
-                s = 0
-                for i in range(x):
-                    s += Distribution.from_dice(dice, prec, y)
-                return s
-        return __dice
+    def dice_operation(dice, prec, y, x=1):
+        """
+        The operation passed to expressions' __parse in the operations dict for the key `d`.
+
+        The first two arguments hve to be given via ´partial´ first.
+        """
+        if x == 1:
+            return Distribution.from_dice(dice, prec, y)
+        else:
+            s = 0
+            for i in range(x):
+                s += Distribution.from_dice(dice, prec, y)
+            return s
+
+    @staticmethod
+    def from_expression(expr, dice, prec=1):
+        """
+        Parse a expression and return a Distribution object representing the expression for a given dice.
+
+        How the dice should work, can be found at from_dice.
+        """
+        operations = {"d": partial(Distribution.dice_operation, dice, prec), "+": add, "-": sub}
+        return parse(expr, operations, int)
 
     @property
     def max(self):
@@ -70,7 +90,6 @@ class Distribution:
             for self_x, self_y in zip(self.xs, self.ys):
                 for obj_x, obj_y in zip(obj.xs, obj.ys):
                     new.ys[int((self_x + obj_x)*new.prec) - new.min] += self_y * obj_y
-
             return new
         else:
             raise TypeError()
@@ -101,6 +120,7 @@ def normal(i, n):
 
 
 def gauss(i, n):
+    # TODO redo
     x = i - (n+1)/2
     mu = 0
     sigma = 1/6*(n-1)
@@ -117,30 +137,30 @@ def create(expr, prec=1, dice=normal):
     if dice in __dices_to_plot:
         dice = __dices_to_plot[dice]
 
-    operations = {"d": Distribution.get_operation(dice, prec), "+": __add, "-": __sub}
-    dist = __parse(expr, operations, const=int)
-    dist = dist.normalize()
-
+    dist = Distribution.from_expression(expr, dice, prec)
     plot = plt.plot(dist.xs, dist.ys)
+    plt.ylim((0, None))
     return plot
 
 
 def create_by_rolling(expr, dice, n=10**5):
     expr = compile(expr)
-    results = dict((i, 0) for i in range(expr(dices.lowest), expr(dices.highest)+1))
+    low = expr(dices.lowest)
+
+    x = list(range(low, expr(dices.highest)+1))
+    y = [0 for i in x]
 
     for i in range(n):
-        results[expr(dice)] += 1
-
-    x = list(results.keys())
-    y = list(results.values())
+        y[expr(dice) - low] += 1
 
     for i in range(len(y)):
         y[i] /= n
 
     plot = plt.plot(x, y)
+    plt.ylim((0, None))
     return plot
 
 def test(expr, dice):
     create(expr, dice=dice)
     create_by_rolling(expr, dice=dice, n=10**5)
+    plt.show()
