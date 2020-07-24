@@ -5,6 +5,8 @@ from math import tau
 from matplotlib import pyplot as plt
 
 from .expression import __parse
+from .expression import __add
+from .expression import __sub
 from .expression import compile
 from . import dices
 
@@ -114,14 +116,6 @@ def gauss(i, n):
     mu = 0
     sigma = 1/6*(n-1)
     return exp(-0.5 * ((x - mu) / sigma)**2)/(sigma*sqrt(tau))
-
-
-def __add(y, x=0):
-    return x + y
-
-
-def __sub(y, x=0):
-    return x - y
 
 
 __dices_to_plot = {

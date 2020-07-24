@@ -59,11 +59,11 @@ def __parse(expr, operations, const):
     return tokens[0]
 
 
-def __add(dice, y, x=0):
+def __add(y, x=0):
     return x + y
 
 
-def __sub(dice, y, x=0):
+def __sub(y, x=0):
     return x - y
 
 
@@ -75,7 +75,7 @@ def __dice(dice, y, x=1):
 
 
 def roll(expr, dice=normal):
-    operations = {"d": partial(__dice, dice), "+": partial(__add, dice), "-": partial(__sub, dice)}
+    operations = {"d": partial(__dice, dice), "+": __add, "-": __sub}
     return __parse(expr, operations, int)
 
 
@@ -87,15 +87,26 @@ def __compile_const(value):
 
 
 def __compile_operation(op, left, right=None):
-    def func(dice):
-        if right is None:
-            return op(dice, left(dice))
-        else:
-            return op(dice, left(dice), right(dice))
+    if right is None:
+        def func(dice):
+            return op(left(dice))
+    else:
+        def func(dice):
+            return op(left(dice), right(dice))
     return func
 
 
-__compile_operations = {"d": partial(__compile_operation, __dice),
+def __compiled_dice(left, right=None):
+    if right is None:
+        def func(dice):
+            return __dice(dice, left(dice))
+    else:
+        def func(dice):
+            return __dice(dice, left(dice), right(dice))
+    return func
+
+
+__compile_operations = {"d": __compiled_dice,
                         "+": partial(__compile_operation, __add),
                         "-": partial(__compile_operation, __sub)}
 
