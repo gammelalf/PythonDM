@@ -7,5 +7,10 @@
     "con": 1,
     "int": 1,
     "wis": 2,
-    "cha": 0
+    "cha": 0,
+    "skills": {
+        "medicine": 4,
+        "nature": 3,
+        "perception": 4
+    }
 }

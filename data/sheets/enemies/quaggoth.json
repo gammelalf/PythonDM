@@ -7,5 +7,8 @@
     "con": 3,
     "int": -2,
     "wis": 1,
-    "cha": -2
+    "cha": -2,
+    "skills": {
+        "athletics": 5
+    }
 }

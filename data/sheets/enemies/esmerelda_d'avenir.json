@@ -7,5 +7,17 @@
     "con": 3,
     "int": 3,
     "wis": 0,
-    "cha": 3
+    "cha": 3,
+    "skills": {
+        "acrobatics": 7,
+        "arcana": 6,
+        "deception": 9,
+        "insight": 3,
+        "medicine": 3,
+        "perception": 6,
+        "performance": 6,
+        "hand": 7,
+        "stealth": 7,
+        "survival": 6
+    }
 }

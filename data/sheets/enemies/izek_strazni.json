@@ -7,5 +7,9 @@
     "con": 3,
     "int": 0,
     "wis": -1,
-    "cha": 2
+    "cha": 2,
+    "skills": {
+        "intimidation": 8,
+        "perception": 2
+    }
 }

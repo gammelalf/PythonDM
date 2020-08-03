@@ -21,9 +21,11 @@ class Sheet(object):
         self.wis = 0
         self.cha = 0
 
+        self.skills = {}
+
         if path is not None:
             self.__dict__.update(json_load(path))
-        #self.skills = Skills(self)
+        self.skills = Skills(self)
         #self.saving_throws = SavingThrows(self)
 
     def __repr__(self):

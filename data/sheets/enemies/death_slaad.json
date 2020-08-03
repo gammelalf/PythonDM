@@ -7,5 +7,9 @@
     "con": 4,
     "int": 2,
     "wis": 0,
-    "cha": 3
+    "cha": 3,
+    "skills": {
+        "arcana": 6,
+        "perception": 8
+    }
 }

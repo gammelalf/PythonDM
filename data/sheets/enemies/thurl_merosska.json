@@ -7,5 +7,11 @@
     "con": 2,
     "int": 0,
     "wis": 0,
-    "cha": 2
+    "cha": 2,
+    "skills": {
+        "handling": 2,
+        "athletics": 5,
+        "deception": 4,
+        "persuasion": 4
+    }
 }

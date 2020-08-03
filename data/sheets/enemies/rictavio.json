@@ -7,5 +7,13 @@
     "con": 1,
     "int": 3,
     "wis": 4,
-    "cha": 3
+    "cha": 3,
+    "skills": {
+        "arcana": 9,
+        "insight": 7,
+        "medicine": 7,
+        "perception": 7,
+        "religion": 6,
+        "hand": 4
+    }
 }
