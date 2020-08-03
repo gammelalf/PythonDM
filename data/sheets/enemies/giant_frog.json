@@ -1,0 +1,11 @@
+{
+    "name": "Giant Frog",
+    "hp": "4d8",
+    "ac": 11,
+    "str": 1,
+    "dex": 1,
+    "con": 0,
+    "int": -4,
+    "wis": 0,
+    "cha": -4
+}

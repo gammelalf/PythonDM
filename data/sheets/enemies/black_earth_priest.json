@@ -1,0 +1,11 @@
+{
+    "name": "Black Earth Priest",
+    "hp": "7d8 + 14",
+    "ac": 17,
+    "str": 2,
+    "dex": 0,
+    "con": 2,
+    "int": 1,
+    "wis": 0,
+    "cha": 3
+}

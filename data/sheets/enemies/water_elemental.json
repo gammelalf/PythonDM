@@ -1,0 +1,11 @@
+{
+    "name": "Water Elemental",
+    "hp": "12d10 + 48",
+    "ac": 14,
+    "str": 4,
+    "dex": 2,
+    "con": 4,
+    "int": -3,
+    "wis": 0,
+    "cha": -1
+}

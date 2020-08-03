@@ -1,0 +1,11 @@
+{
+    "name": "Umber Hulk",
+    "hp": "11d10 + 33",
+    "ac": 18,
+    "str": 5,
+    "dex": 1,
+    "con": 3,
+    "int": -1,
+    "wis": 0,
+    "cha": 0
+}

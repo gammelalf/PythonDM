@@ -1,0 +1,11 @@
+{
+    "name": "Giant Elk",
+    "hp": "5d12 + 10",
+    "ac": 14,
+    "str": 4,
+    "dex": 3,
+    "con": 2,
+    "int": -2,
+    "wis": 2,
+    "cha": 0
+}

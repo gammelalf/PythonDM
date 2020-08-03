@@ -1,0 +1,11 @@
+{
+    "name": "Pentadrone",
+    "hp": "5d10 + 5",
+    "ac": 16,
+    "str": 2,
+    "dex": 2,
+    "con": 1,
+    "int": 0,
+    "wis": 0,
+    "cha": 1
+}

@@ -1,0 +1,11 @@
+{
+    "name": "Salamanders",
+    "hp": "5d8",
+    "ac": 14,
+    "str": 1,
+    "dex": 2,
+    "con": 0,
+    "int": -2,
+    "wis": 0,
+    "cha": -1
+}

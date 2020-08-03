@@ -1,27 +1,11 @@
 {
-	"name": "Berserker",
-
-	"size": "Medium",
-	"race": "humanoid (any race)",
-	"alignment": ["any", "chaotic"],
-
-	"ac": 13,
-	"armor": ["hide armor"],
-	"hp": "9d8+27",
-	"speed": 30,
-
-	"str":  3,
-	"dex":  1,
-	"con":  3,
-	"int": -1,
-	"wis":  0,
-	"cha": -1,
-
-	"senses": "passive Perception 10",
-	"languages": ["any"],
-	"challenge": 2,
-
-	"reckless": "At the start of its turn, the berserker can gain advantage on all melee weapon attack rolls during that turn, but attack rolls against it have advantage until the start of its next turn.",
-
-	"actions": ["Greataxe. Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 9 (1d12 + 3) slashing damage."]
+    "name": "Berserker",
+    "hp": "9d8 + 27",
+    "ac": 13,
+    "str": 3,
+    "dex": 1,
+    "con": 3,
+    "int": -1,
+    "wis": 0,
+    "cha": -1
 }

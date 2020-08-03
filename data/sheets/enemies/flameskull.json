@@ -1,0 +1,11 @@
+{
+    "name": "Flameskull",
+    "hp": "9d4 + 18",
+    "ac": 13,
+    "str": -5,
+    "dex": 3,
+    "con": 2,
+    "int": 3,
+    "wis": 0,
+    "cha": 0
+}

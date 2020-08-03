@@ -1,0 +1,11 @@
+{
+    "name": "Ankylosaurus",
+    "hp": "8d12 + 16",
+    "ac": 15,
+    "str": 4,
+    "dex": 0,
+    "con": 2,
+    "int": -4,
+    "wis": 1,
+    "cha": -3
+}

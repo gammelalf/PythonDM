@@ -1,0 +1,11 @@
+{
+    "name": "Shrieker",
+    "hp": "3d8",
+    "ac": 5,
+    "str": -5,
+    "dex": -5,
+    "con": 0,
+    "int": -5,
+    "wis": -4,
+    "cha": -5
+}

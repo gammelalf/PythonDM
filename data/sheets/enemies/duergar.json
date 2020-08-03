@@ -1,0 +1,11 @@
+{
+    "name": "Duergar",
+    "hp": "4d8 + 8",
+    "ac": 16,
+    "str": 2,
+    "dex": 0,
+    "con": 2,
+    "int": 0,
+    "wis": 0,
+    "cha": -1
+}

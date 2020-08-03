@@ -1,0 +1,11 @@
+{
+    "name": "Goblins",
+    "hp": "6d6",
+    "ac": 17,
+    "str": 0,
+    "dex": 2,
+    "con": 0,
+    "int": 0,
+    "wis": -1,
+    "cha": 0
+}

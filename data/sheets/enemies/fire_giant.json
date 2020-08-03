@@ -1,0 +1,11 @@
+{
+    "name": "Fire Giant",
+    "hp": "13d12 + 78",
+    "ac": 18,
+    "str": 7,
+    "dex": -1,
+    "con": 6,
+    "int": 0,
+    "wis": 2,
+    "cha": 1
+}

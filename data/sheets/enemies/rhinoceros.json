@@ -1,0 +1,11 @@
+{
+    "name": "Rhinoceros",
+    "hp": "6d10 + 12",
+    "ac": 11,
+    "str": 5,
+    "dex": -1,
+    "con": 2,
+    "int": -4,
+    "wis": 1,
+    "cha": -2
+}

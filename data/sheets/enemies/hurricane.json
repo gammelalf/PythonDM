@@ -1,0 +1,11 @@
+{
+    "name": "Hurricane",
+    "hp": "6d8 + 6",
+    "ac": 14,
+    "str": 1,
+    "dex": 3,
+    "con": 1,
+    "int": 0,
+    "wis": 1,
+    "cha": 0
+}

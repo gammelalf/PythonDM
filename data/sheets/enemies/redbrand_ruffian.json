@@ -1,0 +1,11 @@
+{
+    "name": "Redbrand Ruffian",
+    "hp": "3d8 + 3",
+    "ac": 14,
+    "str": 0,
+    "dex": 2,
+    "con": 1,
+    "int": -1,
+    "wis": -1,
+    "cha": 0
+}

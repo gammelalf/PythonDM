@@ -1,0 +1,11 @@
+{
+    "name": "Steeders",
+    "hp": "2d8 + 4",
+    "ac": 12,
+    "str": 2,
+    "dex": 1,
+    "con": 2,
+    "int": -4,
+    "wis": 0,
+    "cha": -4
+}

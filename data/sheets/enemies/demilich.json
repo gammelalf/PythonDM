@@ -1,0 +1,11 @@
+{
+    "name": "Demilich",
+    "hp": "20d4",
+    "ac": 20,
+    "str": -5,
+    "dex": 5,
+    "con": 0,
+    "int": 5,
+    "wis": 3,
+    "cha": 5
+}

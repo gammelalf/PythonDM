@@ -1,0 +1,11 @@
+{
+    "name": "Phase Spider",
+    "hp": "5d10 + 5",
+    "ac": 13,
+    "str": 2,
+    "dex": 2,
+    "con": 1,
+    "int": -2,
+    "wis": 0,
+    "cha": -2
+}

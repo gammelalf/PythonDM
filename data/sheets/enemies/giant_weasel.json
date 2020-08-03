@@ -1,0 +1,11 @@
+{
+    "name": "Giant Weasel",
+    "hp": "2d8",
+    "ac": 13,
+    "str": 0,
+    "dex": 3,
+    "con": 0,
+    "int": -3,
+    "wis": 1,
+    "cha": -3
+}

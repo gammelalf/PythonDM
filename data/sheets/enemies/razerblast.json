@@ -1,0 +1,11 @@
+{
+    "name": "Razerblast",
+    "hp": "15d8 + 75",
+    "ac": 17,
+    "str": 3,
+    "dex": 0,
+    "con": 3,
+    "int": -1,
+    "wis": 0,
+    "cha": 1
+}

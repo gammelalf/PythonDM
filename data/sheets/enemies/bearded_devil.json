@@ -1,0 +1,11 @@
+{
+    "name": "Bearded Devil (Barbazu)",
+    "hp": "8d8 + 16",
+    "ac": 13,
+    "str": 3,
+    "dex": 2,
+    "con": 2,
+    "int": -1,
+    "wis": 0,
+    "cha": 0
+}

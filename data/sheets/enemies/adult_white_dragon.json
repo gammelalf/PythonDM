@@ -1,0 +1,11 @@
+{
+    "name": "White Dragon",
+    "hp": "16d12 + 96",
+    "ac": 18,
+    "str": 6,
+    "dex": 0,
+    "con": 6,
+    "int": -1,
+    "wis": 1,
+    "cha": 1
+}

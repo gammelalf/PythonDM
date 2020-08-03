@@ -1,0 +1,11 @@
+{
+    "name": "Sample Half-Dragon",
+    "hp": "10d8 + 20",
+    "ac": 18,
+    "str": 3,
+    "dex": 1,
+    "con": 2,
+    "int": 0,
+    "wis": 0,
+    "cha": 0
+}

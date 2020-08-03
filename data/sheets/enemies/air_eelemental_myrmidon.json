@@ -1,0 +1,11 @@
+{
+    "name": "Air Eelemental Myrmidon",
+    "hp": "18d8 + 36",
+    "ac": 18,
+    "str": 4,
+    "dex": 2,
+    "con": 2,
+    "int": -1,
+    "wis": 0,
+    "cha": 0
+}

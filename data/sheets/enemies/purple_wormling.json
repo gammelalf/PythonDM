@@ -1,0 +1,11 @@
+{
+    "name": "Purple Wormling",
+    "hp": "5d10 + 15",
+    "ac": 12,
+    "str": 3,
+    "dex": -2,
+    "con": 3,
+    "int": -5,
+    "wis": -2,
+    "cha": -4
+}

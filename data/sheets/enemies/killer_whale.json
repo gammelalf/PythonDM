@@ -1,0 +1,11 @@
+{
+    "name": "Killer Whale",
+    "hp": "12d12 + 12",
+    "ac": 12,
+    "str": 4,
+    "dex": 0,
+    "con": 1,
+    "int": -4,
+    "wis": 1,
+    "cha": -2
+}

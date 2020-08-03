@@ -1,0 +1,11 @@
+{
+    "name": "Strahd Zombie",
+    "hp": "4d8 + 12",
+    "ac": 8,
+    "str": 1,
+    "dex": -2,
+    "con": 3,
+    "int": -4,
+    "wis": -2,
+    "cha": -3
+}

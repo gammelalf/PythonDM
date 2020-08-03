@@ -1,0 +1,11 @@
+{
+    "name": "Sahuagin",
+    "hp": "9d10 + 27",
+    "ac": 16,
+    "str": 4,
+    "dex": 2,
+    "con": 3,
+    "int": 2,
+    "wis": 1,
+    "cha": 3
+}

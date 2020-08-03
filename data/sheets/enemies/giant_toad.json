@@ -1,0 +1,11 @@
+{
+    "name": "Giant Toad",
+    "hp": "6d10 + 6",
+    "ac": 11,
+    "str": 2,
+    "dex": 1,
+    "con": 1,
+    "int": -4,
+    "wis": 0,
+    "cha": -4
+}

@@ -1,48 +1,11 @@
 {
-	"name": "Assassin",
-
-	"size": "Medium",
-	"race": "Humanoid (any race)",
-	"alignment": [
-		"any",
-		"non-good"
-	],
-
-	"ac": 15,
-	"armor": ["studded leather"],
-	"hp": "12d8+24",
-	"speed": {
-		"walk": 30,
-		"swim": 0,
-		"fly": 0,
-		"burrow": 0
-	},
-
-	"str": 0,
-	"dex": 3,
-	"con": 2,
-	"int": 1,
-	"wis": 0,
-	"cha": 0,
-
-	"saving_throws": {
-		"dex": 6,
-		"int": 4
-	},
-	"skills": {
-		"acrobatics": 6,
-		"deception": 3,
-		"perception": 3,
-		"stealth": 9
-	},
-	"damage_resistance": "poison",
-	"senses": "passive Perception 13",
-	"language": [
-		"thieves' cant",
-		"any",
-		"any"
-	],
-	"challenge": 0.125,
-
-	"actions": []
+    "name": "Assassin",
+    "hp": "12d8 + 24",
+    "ac": 15,
+    "str": 0,
+    "dex": 3,
+    "con": 2,
+    "int": 1,
+    "wis": 0,
+    "cha": 0
 }

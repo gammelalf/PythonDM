@@ -1,0 +1,11 @@
+{
+    "name": "Demogorgon",
+    "hp": "34d12 + 272",
+    "ac": 22,
+    "str": 9,
+    "dex": 2,
+    "con": 8,
+    "int": 5,
+    "wis": 3,
+    "cha": 7
+}

@@ -1,0 +1,11 @@
+{
+    "name": "Water Weird",
+    "hp": "9d10 + 9",
+    "ac": 13,
+    "str": 3,
+    "dex": 3,
+    "con": 1,
+    "int": 0,
+    "wis": 0,
+    "cha": 0
+}

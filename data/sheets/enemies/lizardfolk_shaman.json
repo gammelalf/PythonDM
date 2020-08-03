@@ -1,0 +1,11 @@
+{
+    "name": "Lizardfolk",
+    "hp": "5d8 + 5",
+    "ac": 13,
+    "str": 2,
+    "dex": 0,
+    "con": 1,
+    "int": 0,
+    "wis": 2,
+    "cha": -1
+}

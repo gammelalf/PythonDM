@@ -1,0 +1,11 @@
+{
+    "name": "Constrictor Snake",
+    "hp": "2d10 + 2",
+    "ac": 12,
+    "str": 2,
+    "dex": 2,
+    "con": 1,
+    "int": -5,
+    "wis": 0,
+    "cha": -4
+}

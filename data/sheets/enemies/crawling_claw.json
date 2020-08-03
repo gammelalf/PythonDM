@@ -1,0 +1,11 @@
+{
+    "name": "Crawling Claw",
+    "hp": "1d4",
+    "ac": 12,
+    "str": 1,
+    "dex": 2,
+    "con": 0,
+    "int": -3,
+    "wis": 0,
+    "cha": -3
+}

@@ -1,0 +1,11 @@
+{
+    "name": "Revenant",
+    "hp": "16d8 + 64",
+    "ac": 13,
+    "str": 4,
+    "dex": 2,
+    "con": 4,
+    "int": 1,
+    "wis": 3,
+    "cha": 4
+}

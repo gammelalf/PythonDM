@@ -1,0 +1,11 @@
+{
+    "name": "Burrowshark",
+    "hp": "11d8 + 33",
+    "ac": 18,
+    "str": 4,
+    "dex": 1,
+    "con": 3,
+    "int": 0,
+    "wis": 0,
+    "cha": 1
+}

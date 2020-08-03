@@ -1,0 +1,11 @@
+{
+    "name": "Cloud Giant",
+    "hp": "16d12 + 96",
+    "ac": 14,
+    "str": 8,
+    "dex": 0,
+    "con": 6,
+    "int": 1,
+    "wis": 3,
+    "cha": 3
+}

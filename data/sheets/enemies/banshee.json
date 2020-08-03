@@ -1,0 +1,11 @@
+{
+    "name": "Banshee",
+    "hp": "13d8",
+    "ac": 12,
+    "str": -5,
+    "dex": 2,
+    "con": 0,
+    "int": 1,
+    "wis": 0,
+    "cha": 3
+}

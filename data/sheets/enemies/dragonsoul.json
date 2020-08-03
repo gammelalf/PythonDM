@@ -1,0 +1,11 @@
+{
+    "name": "Dragonsoul",
+    "hp": "17d8 + 34",
+    "ac": 16,
+    "str": 0,
+    "dex": 4,
+    "con": 2,
+    "int": 1,
+    "wis": 1,
+    "cha": 3
+}

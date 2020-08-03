@@ -1,0 +1,11 @@
+{
+    "name": "Baba Lysaga",
+    "hp": "16d8 + 48",
+    "ac": 15,
+    "str": 4,
+    "dex": 0,
+    "con": 3,
+    "int": 5,
+    "wis": 3,
+    "cha": 1
+}

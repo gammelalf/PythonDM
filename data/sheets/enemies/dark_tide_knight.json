@@ -1,0 +1,11 @@
+{
+    "name": "Dark Tide Knight",
+    "hp": "9d8 + 18",
+    "ac": 13,
+    "str": 3,
+    "dex": 3,
+    "con": 2,
+    "int": 0,
+    "wis": 0,
+    "cha": 0
+}

@@ -1,0 +1,11 @@
+{
+    "name": "Flamewrath",
+    "hp": "14d8 + 42",
+    "ac": 12,
+    "str": 0,
+    "dex": 2,
+    "con": 3,
+    "int": 0,
+    "wis": 0,
+    "cha": 3
+}

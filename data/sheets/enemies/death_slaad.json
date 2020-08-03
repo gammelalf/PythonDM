@@ -1,0 +1,11 @@
+{
+    "name": "Death Slaad",
+    "hp": "20d8 + 80",
+    "ac": 18,
+    "str": 5,
+    "dex": 2,
+    "con": 4,
+    "int": 2,
+    "wis": 0,
+    "cha": 3
+}

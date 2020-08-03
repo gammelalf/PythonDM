@@ -11,19 +11,8 @@ class Sheet(object):
 
         self.name = ""
 
-        self.size = "Medium"
-        self.race = "Humanoid"
-        self.alignment = ["any", "any"]
-
         self.hp = 0
         self.ac = 10
-        self.armor = []
-        self.speed = {
-                "walk": 30,
-                "swim": 0,
-                "fly": 0,
-                "burrow": 0
-                }
 
         self.str = 0
         self.dex = 0
@@ -32,19 +21,10 @@ class Sheet(object):
         self.wis = 0
         self.cha = 0
 
-        self.saving_throws = {}
-        self.skills = {}
-        self.damage_resistances = []
-        self.senses = {"passive Perception": 10}
-        self.language = ["Common"]
-        self.challenge = 1
-
-        self.actions = []
-
         if path is not None:
             self.__dict__.update(json_load(path))
-        self.skills = Skills(self)
-        self.saving_throws = SavingThrows(self)
+        #self.skills = Skills(self)
+        #self.saving_throws = SavingThrows(self)
 
     def __repr__(self):
         return f"Sheet({self.__path})"
@@ -62,7 +42,7 @@ class Sheet(object):
 
 class Skills:
 
-    __skill2attr__ = json_load("data/skills.json")
+    __skill2attr__ = {} #json_load("data/skills.json")
     __slots__ = ["__sheet__", "__skills__"] \
         + list(__skill2attr__.keys())  # For tab completion
 

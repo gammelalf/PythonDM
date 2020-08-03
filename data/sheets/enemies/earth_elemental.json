@@ -1,0 +1,11 @@
+{
+    "name": "Earth Elemental",
+    "hp": "12d10 + 60",
+    "ac": 17,
+    "str": 5,
+    "dex": -1,
+    "con": 5,
+    "int": -3,
+    "wis": 0,
+    "cha": -3
+}

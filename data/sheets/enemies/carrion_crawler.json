@@ -1,0 +1,11 @@
+{
+    "name": "Carrion Crawler",
+    "hp": "6d10 + 18",
+    "ac": 13,
+    "str": 2,
+    "dex": 1,
+    "con": 3,
+    "int": -5,
+    "wis": 1,
+    "cha": -3
+}

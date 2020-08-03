@@ -1,0 +1,11 @@
+{
+    "name": "Izek Strazni",
+    "hp": "15d8 + 45",
+    "ac": 14,
+    "str": 4,
+    "dex": 2,
+    "con": 3,
+    "int": 0,
+    "wis": -1,
+    "cha": 2
+}

@@ -1,0 +1,11 @@
+{
+    "name": "Twig Blight",
+    "hp": "1d6 + 1",
+    "ac": 13,
+    "str": -2,
+    "dex": 1,
+    "con": 1,
+    "int": -3,
+    "wis": -1,
+    "cha": -4
+}

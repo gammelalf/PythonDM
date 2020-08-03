@@ -1,0 +1,11 @@
+{
+    "name": "Scarecrow",
+    "hp": "8d8",
+    "ac": 11,
+    "str": 0,
+    "dex": 1,
+    "con": 0,
+    "int": 0,
+    "wis": 0,
+    "cha": 1
+}

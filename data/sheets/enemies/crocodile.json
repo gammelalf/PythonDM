@@ -1,0 +1,11 @@
+{
+    "name": "Crocodile",
+    "hp": "3d10 + 3",
+    "ac": 12,
+    "str": 2,
+    "dex": 0,
+    "con": 1,
+    "int": -4,
+    "wis": 0,
+    "cha": -3
+}

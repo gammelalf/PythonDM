@@ -1,0 +1,11 @@
+{
+    "name": "Gynosphinx",
+    "hp": "16d10 + 48",
+    "ac": 17,
+    "str": 4,
+    "dex": 2,
+    "con": 3,
+    "int": 4,
+    "wis": 4,
+    "cha": 4
+}

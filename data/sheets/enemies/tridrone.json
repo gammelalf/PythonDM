@@ -1,0 +1,11 @@
+{
+    "name": "Tridrone",
+    "hp": "3d8 + 3",
+    "ac": 15,
+    "str": 1,
+    "dex": 1,
+    "con": 1,
+    "int": -1,
+    "wis": 0,
+    "cha": -1
+}

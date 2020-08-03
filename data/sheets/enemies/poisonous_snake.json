@@ -1,0 +1,11 @@
+{
+    "name": "Poisonous Snake",
+    "hp": "1d4",
+    "ac": 13,
+    "str": -4,
+    "dex": 3,
+    "con": 0,
+    "int": -5,
+    "wis": 0,
+    "cha": -4
+}

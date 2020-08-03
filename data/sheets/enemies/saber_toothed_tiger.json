@@ -1,0 +1,11 @@
+{
+    "name": "Saber-Toothed Tiger",
+    "hp": "7d10 + 14",
+    "ac": 12,
+    "str": 4,
+    "dex": 2,
+    "con": 2,
+    "int": -4,
+    "wis": 1,
+    "cha": -1
+}

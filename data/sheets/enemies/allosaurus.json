@@ -1,0 +1,11 @@
+{
+    "name": "Allosaurus",
+    "hp": "6d10 + 18",
+    "ac": 13,
+    "str": 4,
+    "dex": 1,
+    "con": 3,
+    "int": -4,
+    "wis": 1,
+    "cha": -3
+}

@@ -1,0 +1,11 @@
+{
+    "name": "Crushing Wave Priest",
+    "hp": "8d8 + 16",
+    "ac": 13,
+    "str": 2,
+    "dex": 0,
+    "con": 2,
+    "int": 0,
+    "wis": 0,
+    "cha": 3
+}

@@ -1,0 +1,11 @@
+{
+    "name": "Guardian Naga",
+    "hp": "15d10 + 45",
+    "ac": 18,
+    "str": 4,
+    "dex": 4,
+    "con": 3,
+    "int": 3,
+    "wis": 4,
+    "cha": 4
+}

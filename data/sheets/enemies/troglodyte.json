@@ -1,0 +1,11 @@
+{
+    "name": "Troglodyte",
+    "hp": "2d8 + 4",
+    "ac": 11,
+    "str": 2,
+    "dex": 0,
+    "con": 2,
+    "int": -2,
+    "wis": 0,
+    "cha": -2
+}

@@ -1,0 +1,11 @@
+{
+    "name": "Death Dog",
+    "hp": "6d8 + 12",
+    "ac": 12,
+    "str": 2,
+    "dex": 2,
+    "con": 2,
+    "int": -4,
+    "wis": 1,
+    "cha": -2
+}

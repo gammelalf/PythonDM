@@ -1,0 +1,11 @@
+{
+    "name": "The Pudding King",
+    "hp": "9d6 + 18",
+    "ac": 13,
+    "str": 0,
+    "dex": 3,
+    "con": 2,
+    "int": 1,
+    "wis": -1,
+    "cha": 3
+}

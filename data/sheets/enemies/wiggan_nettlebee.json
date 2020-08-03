@@ -1,0 +1,11 @@
+{
+    "name": "Wiggan Nettlebee",
+    "hp": "8d6 + 8",
+    "ac": 11,
+    "str": -1,
+    "dex": 1,
+    "con": 1,
+    "int": 2,
+    "wis": 2,
+    "cha": 1
+}

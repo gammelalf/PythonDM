@@ -1,0 +1,11 @@
+{
+    "name": "Blink Dog",
+    "hp": "4d8 + 4",
+    "ac": 13,
+    "str": 1,
+    "dex": 3,
+    "con": 1,
+    "int": 0,
+    "wis": 1,
+    "cha": 0
+}

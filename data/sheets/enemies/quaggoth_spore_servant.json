@@ -1,0 +1,11 @@
+{
+    "name": "Sample Spore Servant",
+    "hp": "6d8 + 18",
+    "ac": 13,
+    "str": 3,
+    "dex": 1,
+    "con": 3,
+    "int": -4,
+    "wis": -2,
+    "cha": -5
+}

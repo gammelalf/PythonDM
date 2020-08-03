@@ -1,0 +1,11 @@
+{
+    "name": "Rictavio",
+    "hp": "14d8 + 14",
+    "ac": 12,
+    "str": -1,
+    "dex": 1,
+    "con": 1,
+    "int": 3,
+    "wis": 4,
+    "cha": 3
+}

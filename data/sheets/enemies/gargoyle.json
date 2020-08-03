@@ -1,0 +1,11 @@
+{
+    "name": "Gargoyle",
+    "hp": "7d8 + 21",
+    "ac": 15,
+    "str": 2,
+    "dex": 0,
+    "con": 3,
+    "int": -2,
+    "wis": 0,
+    "cha": -2
+}

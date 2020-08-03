@@ -1,0 +1,11 @@
+{
+    "name": "Air Elemental",
+    "hp": "12d10 + 24",
+    "ac": 15,
+    "str": 2,
+    "dex": 5,
+    "con": 2,
+    "int": -2,
+    "wis": 0,
+    "cha": -2
+}

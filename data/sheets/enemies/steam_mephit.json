@@ -1,0 +1,11 @@
+{
+    "name": "Steam Mephit",
+    "hp": "6d6",
+    "ac": 10,
+    "str": -3,
+    "dex": 0,
+    "con": 0,
+    "int": 0,
+    "wis": 0,
+    "cha": 1
+}

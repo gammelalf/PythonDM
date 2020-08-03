@@ -1,0 +1,11 @@
+{
+    "name": "Marilith",
+    "hp": "18d10 + 90",
+    "ac": 18,
+    "str": 4,
+    "dex": 5,
+    "con": 5,
+    "int": 4,
+    "wis": 3,
+    "cha": 5
+}

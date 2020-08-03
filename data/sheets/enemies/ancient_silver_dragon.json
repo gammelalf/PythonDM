@@ -1,0 +1,11 @@
+{
+    "name": "Silver Dragon",
+    "hp": "25d20 + 255",
+    "ac": 22,
+    "str": 10,
+    "dex": 0,
+    "con": 9,
+    "int": 4,
+    "wis": 2,
+    "cha": 6
+}

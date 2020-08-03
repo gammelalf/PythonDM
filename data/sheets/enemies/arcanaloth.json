@@ -1,0 +1,11 @@
+{
+    "name": "Arcanaloth",
+    "hp": "16d8 + 32",
+    "ac": 17,
+    "str": 3,
+    "dex": 1,
+    "con": 2,
+    "int": 5,
+    "wis": 3,
+    "cha": 3
+}

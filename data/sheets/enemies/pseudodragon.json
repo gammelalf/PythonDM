@@ -1,0 +1,11 @@
+{
+    "name": "Pseudodragon",
+    "hp": "2d4 + 2",
+    "ac": 13,
+    "str": -2,
+    "dex": 2,
+    "con": 1,
+    "int": 0,
+    "wis": 1,
+    "cha": 0
+}

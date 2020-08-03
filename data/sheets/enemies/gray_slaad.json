@@ -1,0 +1,11 @@
+{
+    "name": "Gray Slaad",
+    "hp": "17d8 + 51",
+    "ac": 18,
+    "str": 3,
+    "dex": 3,
+    "con": 3,
+    "int": 1,
+    "wis": -1,
+    "cha": 2
+}

@@ -1,0 +1,11 @@
+{
+    "name": "Bronze Dragon",
+    "hp": "17d12 + 102",
+    "ac": 19,
+    "str": 7,
+    "dex": 0,
+    "con": 6,
+    "int": 3,
+    "wis": 2,
+    "cha": 4
+}

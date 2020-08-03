@@ -1,0 +1,11 @@
+{
+    "name": "Hawk (Falcon)",
+    "hp": "1d4 - 1",
+    "ac": 13,
+    "str": -3,
+    "dex": 3,
+    "con": -1,
+    "int": -4,
+    "wis": 2,
+    "cha": -2
+}

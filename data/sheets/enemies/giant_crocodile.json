@@ -1,0 +1,11 @@
+{
+    "name": "Giant Crocodile",
+    "hp": "9d12 + 27",
+    "ac": 14,
+    "str": 5,
+    "dex": -1,
+    "con": 3,
+    "int": -4,
+    "wis": 0,
+    "cha": -2
+}

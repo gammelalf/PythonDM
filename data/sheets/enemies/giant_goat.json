@@ -1,0 +1,11 @@
+{
+    "name": "Giant Goat",
+    "hp": "3d10 + 3",
+    "ac": 11,
+    "str": 3,
+    "dex": 0,
+    "con": 1,
+    "int": -4,
+    "wis": 1,
+    "cha": -2
+}

@@ -1,0 +1,11 @@
+{
+    "name": "Green Dragon",
+    "hp": "22d20 + 154",
+    "ac": 21,
+    "str": 8,
+    "dex": 1,
+    "con": 7,
+    "int": 5,
+    "wis": 3,
+    "cha": 4
+}

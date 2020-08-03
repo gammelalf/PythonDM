@@ -1,45 +1,11 @@
 {
     "name": "Knight",
-
-    "size": "Medium",
-    "race": "Humanoid (any race)",
-    "alignment": [
-        "any",
-        "any"
-    ],
-
+    "hp": "8d8 + 16",
     "ac": 18,
-    "armor": ["plate"],
-	"hp": "8d8+16",
-    "speed": {
-        "walk": 30,
-        "swim": 0,
-        "fly": 0,
-        "burrow": 0
-    },
-
     "str": 3,
     "dex": 0,
     "con": 2,
     "int": 0,
     "wis": 0,
-    "cha": 2,
-
-	"saving_throws": {
-		"con": 4,
-		"wis": 2
-	},
-    "senses": {
-		"passive Perception": 10
-	},
-    "language": [
-        "Common"
-    ],
-    "challenge": 3,
-
-	"brave": "The knight has advantage on saving throws against being frightened.",
-
-    "actions": [
-		"TODO"
-	]
+    "cha": 2
 }

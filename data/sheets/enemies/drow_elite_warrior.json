@@ -1,0 +1,11 @@
+{
+    "name": "Drow Elite Warrior",
+    "hp": "11d8 + 22",
+    "ac": 18,
+    "str": 1,
+    "dex": 4,
+    "con": 2,
+    "int": 0,
+    "wis": 1,
+    "cha": 1
+}

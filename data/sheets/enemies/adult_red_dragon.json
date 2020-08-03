@@ -1,0 +1,11 @@
+{
+    "name": "Red Dragon",
+    "hp": "19d12 + 133",
+    "ac": 19,
+    "str": 8,
+    "dex": 0,
+    "con": 7,
+    "int": 3,
+    "wis": 1,
+    "cha": 5
+}

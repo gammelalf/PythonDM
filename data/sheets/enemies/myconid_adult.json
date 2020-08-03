@@ -1,0 +1,11 @@
+{
+    "name": "Myconids",
+    "hp": "4d8 + 4",
+    "ac": 12,
+    "str": 0,
+    "dex": 0,
+    "con": 1,
+    "int": 0,
+    "wis": 1,
+    "cha": -2
+}

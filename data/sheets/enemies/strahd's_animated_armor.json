@@ -1,0 +1,11 @@
+{
+    "name": "Strahd's Animated Armor",
+    "hp": "15d8 + 45",
+    "ac": 21,
+    "str": 3,
+    "dex": 1,
+    "con": 3,
+    "int": -1,
+    "wis": 0,
+    "cha": -1
+}

@@ -1,0 +1,11 @@
+{
+    "name": "Storm Giant",
+    "hp": "20d12 + 100",
+    "ac": 16,
+    "str": 9,
+    "dex": 2,
+    "con": 5,
+    "int": 3,
+    "wis": 4,
+    "cha": 4
+}

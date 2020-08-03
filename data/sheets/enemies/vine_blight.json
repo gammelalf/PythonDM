@@ -1,0 +1,11 @@
+{
+    "name": "Vine Blight",
+    "hp": "4d8 + 8",
+    "ac": 12,
+    "str": 2,
+    "dex": -1,
+    "con": 2,
+    "int": -3,
+    "wis": 0,
+    "cha": -4
+}

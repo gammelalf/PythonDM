@@ -1,0 +1,11 @@
+{
+    "name": "Shambling Mound",
+    "hp": "16d10 + 48",
+    "ac": 15,
+    "str": 4,
+    "dex": -1,
+    "con": 3,
+    "int": -3,
+    "wis": 0,
+    "cha": -3
+}

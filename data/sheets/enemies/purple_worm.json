@@ -1,0 +1,11 @@
+{
+    "name": "Purple Worm",
+    "hp": "15d20 + 90",
+    "ac": 18,
+    "str": 9,
+    "dex": -2,
+    "con": 6,
+    "int": -5,
+    "wis": -1,
+    "cha": -3
+}

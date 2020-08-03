@@ -1,0 +1,11 @@
+{
+    "name": "Yuan-ti Abomination",
+    "hp": "15d10 + 45",
+    "ac": 15,
+    "str": 4,
+    "dex": 3,
+    "con": 3,
+    "int": 3,
+    "wis": 2,
+    "cha": 4
+}

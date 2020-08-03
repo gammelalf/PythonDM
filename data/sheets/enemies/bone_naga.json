@@ -1,0 +1,11 @@
+{
+    "name": "Bone Naga",
+    "hp": "9d10 + 9",
+    "ac": 15,
+    "str": 2,
+    "dex": 3,
+    "con": 1,
+    "int": 2,
+    "wis": 2,
+    "cha": 3
+}

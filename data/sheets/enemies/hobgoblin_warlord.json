@@ -1,0 +1,11 @@
+{
+    "name": "Hobgoblins",
+    "hp": "13d8 + 39",
+    "ac": 20,
+    "str": 3,
+    "dex": 2,
+    "con": 3,
+    "int": 2,
+    "wis": 0,
+    "cha": 2
+}

@@ -1,0 +1,11 @@
+{
+    "name": "Giant Octopus",
+    "hp": "8d10 + 8",
+    "ac": 11,
+    "str": 3,
+    "dex": 1,
+    "con": 1,
+    "int": -3,
+    "wis": 0,
+    "cha": 2
+}

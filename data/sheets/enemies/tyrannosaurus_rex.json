@@ -1,0 +1,11 @@
+{
+    "name": "Tyrannosaurus Rex",
+    "hp": "13d12 + 52",
+    "ac": 13,
+    "str": 7,
+    "dex": 0,
+    "con": 4,
+    "int": -4,
+    "wis": 1,
+    "cha": -1
+}

@@ -1,0 +1,11 @@
+{
+    "name": "Drow Mage",
+    "hp": "10d8",
+    "ac": 12,
+    "str": -1,
+    "dex": 2,
+    "con": 0,
+    "int": 3,
+    "wis": 1,
+    "cha": 1
+}

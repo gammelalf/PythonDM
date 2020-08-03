@@ -1,0 +1,11 @@
+{
+    "name": "Neronvain",
+    "hp": "18d8 + 36",
+    "ac": 17,
+    "str": -1,
+    "dex": 3,
+    "con": 2,
+    "int": 3,
+    "wis": 1,
+    "cha": 4
+}

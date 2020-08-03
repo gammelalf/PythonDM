@@ -1,0 +1,11 @@
+{
+    "name": "Copper Dragon",
+    "hp": "14d10 + 42",
+    "ac": 17,
+    "str": 4,
+    "dex": 1,
+    "con": 3,
+    "int": 3,
+    "wis": 1,
+    "cha": 2
+}

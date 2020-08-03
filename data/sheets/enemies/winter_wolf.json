@@ -1,0 +1,11 @@
+{
+    "name": "Winter Wolf",
+    "hp": "10d10 + 20",
+    "ac": 13,
+    "str": 4,
+    "dex": 1,
+    "con": 2,
+    "int": -2,
+    "wis": 1,
+    "cha": -1
+}

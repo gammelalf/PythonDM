@@ -1,0 +1,11 @@
+{
+    "name": "Green Hag",
+    "hp": "11d8 + 33",
+    "ac": 17,
+    "str": 4,
+    "dex": 1,
+    "con": 3,
+    "int": 1,
+    "wis": 2,
+    "cha": 2
+}

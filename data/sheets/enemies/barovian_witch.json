@@ -1,0 +1,11 @@
+{
+    "name": "Barovian Witch",
+    "hp": "3d8 + 3",
+    "ac": 10,
+    "str": -2,
+    "dex": 0,
+    "con": 1,
+    "int": 2,
+    "wis": 0,
+    "cha": 1
+}

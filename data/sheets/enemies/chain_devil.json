@@ -1,0 +1,11 @@
+{
+    "name": "Chain Devil (Kyton)",
+    "hp": "10d8 + 40",
+    "ac": 16,
+    "str": 4,
+    "dex": 2,
+    "con": 4,
+    "int": 0,
+    "wis": 1,
+    "cha": 2
+}

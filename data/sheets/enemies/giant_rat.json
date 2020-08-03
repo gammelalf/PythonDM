@@ -1,0 +1,11 @@
+{
+    "name": "Giant Rat",
+    "hp": "2d6",
+    "ac": 12,
+    "str": -2,
+    "dex": 2,
+    "con": 0,
+    "int": -4,
+    "wis": 0,
+    "cha": -3
+}

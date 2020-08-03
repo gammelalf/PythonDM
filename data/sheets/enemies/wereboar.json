@@ -1,0 +1,11 @@
+{
+    "name": "Wereboar",
+    "hp": "12d8 + 24",
+    "ac": 10,
+    "str": 3,
+    "dex": 0,
+    "con": 2,
+    "int": 0,
+    "wis": 0,
+    "cha": -1
+}

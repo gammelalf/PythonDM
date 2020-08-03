@@ -1,0 +1,11 @@
+{
+    "name": "Giant Vulture",
+    "hp": "3d10 + 6",
+    "ac": 10,
+    "str": 2,
+    "dex": 0,
+    "con": 2,
+    "int": -2,
+    "wis": 1,
+    "cha": -2
+}

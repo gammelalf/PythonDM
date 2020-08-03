@@ -1,0 +1,11 @@
+{
+    "name": "Quadrone",
+    "hp": "4d8 + 4",
+    "ac": 16,
+    "str": 1,
+    "dex": 2,
+    "con": 1,
+    "int": 0,
+    "wis": 0,
+    "cha": 0
+}

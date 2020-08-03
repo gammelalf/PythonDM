@@ -1,38 +1,11 @@
 {
     "name": "Doppelganger",
-    "size": "Medium",
-    "race": "Monstrosity",
-    "alignment": [
-        "neutral"
-    ],
     "hp": "8d8 + 16",
     "ac": 14,
-    "armor": [],
-    "speed": {
-        "walk": 30,
-        "swim": 0,
-        "fly": 0,
-        "burrow": 0
-    },
     "str": 0,
     "dex": 4,
     "con": 2,
     "int": 0,
     "wis": 1,
-    "cha": 2,
-    "saving_throws": {},
-    "skills": {
-		"deception": 6,
-		"insight": 3
-	},
-    "damage_resistances": [],
-    "senses": {
-        "passive Perception": 11,
-		"darkvision": 60
-    },
-    "language": [
-        "Common"
-    ],
-    "challenge": 3,
-    "actions": []
+    "cha": 2
 }

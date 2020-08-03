@@ -1,0 +1,11 @@
+{
+    "name": "Panther",
+    "hp": "3d8",
+    "ac": 12,
+    "str": 2,
+    "dex": 2,
+    "con": 0,
+    "int": -4,
+    "wis": 2,
+    "cha": -2
+}

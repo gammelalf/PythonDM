@@ -1,0 +1,11 @@
+{
+    "name": "Dragonfang",
+    "hp": "12d8 + 24",
+    "ac": 15,
+    "str": 0,
+    "dex": 3,
+    "con": 2,
+    "int": 1,
+    "wis": 1,
+    "cha": 2
+}

@@ -1,0 +1,11 @@
+{
+    "name": "Flesh Golem",
+    "hp": "11d8 + 44",
+    "ac": 9,
+    "str": 4,
+    "dex": -1,
+    "con": 4,
+    "int": -2,
+    "wis": 0,
+    "cha": -3
+}

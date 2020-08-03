@@ -1,0 +1,11 @@
+{
+    "name": "Madam Eva",
+    "hp": "16d8 + 16",
+    "ac": 10,
+    "str": -1,
+    "dex": 0,
+    "con": 1,
+    "int": 3,
+    "wis": 5,
+    "cha": 4
+}

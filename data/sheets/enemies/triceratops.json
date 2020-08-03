@@ -1,0 +1,11 @@
+{
+    "name": "Triceratops",
+    "hp": "10d12 + 30",
+    "ac": 13,
+    "str": 6,
+    "dex": -1,
+    "con": 3,
+    "int": -4,
+    "wis": 0,
+    "cha": -3
+}

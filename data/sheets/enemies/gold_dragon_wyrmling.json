@@ -1,0 +1,11 @@
+{
+    "name": "Gold Dragon",
+    "hp": "8d8 + 24",
+    "ac": 17,
+    "str": 4,
+    "dex": 2,
+    "con": 3,
+    "int": 2,
+    "wis": 0,
+    "cha": 3
+}

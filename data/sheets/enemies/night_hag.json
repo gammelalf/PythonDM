@@ -1,0 +1,11 @@
+{
+    "name": "Night Hag",
+    "hp": "15d8 + 45",
+    "ac": 17,
+    "str": 4,
+    "dex": 2,
+    "con": 3,
+    "int": 3,
+    "wis": 2,
+    "cha": 3
+}

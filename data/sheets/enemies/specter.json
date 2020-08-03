@@ -1,0 +1,11 @@
+{
+    "name": "Specter",
+    "hp": "5d8",
+    "ac": 12,
+    "str": -5,
+    "dex": 2,
+    "con": 0,
+    "int": 0,
+    "wis": 0,
+    "cha": 0
+}

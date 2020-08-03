@@ -1,0 +1,11 @@
+{
+    "name": "Ochre Jelly",
+    "hp": "6d10 + 12",
+    "ac": 8,
+    "str": 2,
+    "dex": -2,
+    "con": 2,
+    "int": -4,
+    "wis": -2,
+    "cha": -5
+}
