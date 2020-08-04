@@ -13,5 +13,11 @@
         "athletics": 14,
         "history": 8,
         "perception": 9
+    },
+    "saving_throws": {
+        "str": 14,
+        "con": 10,
+        "wis": 9,
+        "cha": 9
     }
 }

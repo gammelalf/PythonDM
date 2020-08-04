@@ -12,5 +12,11 @@
         "perception": 6,
         "persuasion": 5,
         "stealth": 3
+    },
+    "saving_throws": {
+        "dex": 3,
+        "con": 6,
+        "wis": 3,
+        "cha": 5
     }
 }

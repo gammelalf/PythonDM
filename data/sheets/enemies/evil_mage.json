@@ -11,5 +11,9 @@
     "skills": {
         "arcana": 5,
         "history": 5
+    },
+    "saving_throws": {
+        "int": 5,
+        "wis": 3
     }
 }

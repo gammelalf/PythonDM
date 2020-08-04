@@ -13,5 +13,9 @@
         "intimidation": 4,
         "perception": 5,
         "religion": 4
+    },
+    "saving_throws": {
+        "str": 7,
+        "con": 6
     }
 }

@@ -11,5 +11,10 @@
     "skills": {
         "history": 12,
         "perception": 10
+    },
+    "saving_throws": {
+        "con": 6,
+        "int": 8,
+        "wis": 6
     }
 }

@@ -11,5 +11,11 @@
     "skills": {
         "perception": 6,
         "stealth": 3
+    },
+    "saving_throws": {
+        "dex": 3,
+        "con": 7,
+        "wis": 3,
+        "cha": 4
     }
 }

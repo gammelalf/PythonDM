@@ -12,5 +12,9 @@
         "perception": 5,
         "religion": 2,
         "stealth": 3
+    },
+    "saving_throws": {
+        "str": 4,
+        "con": 6
     }
 }

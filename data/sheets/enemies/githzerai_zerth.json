@@ -12,5 +12,11 @@
         "arcana": 6,
         "insight": 6,
         "perception": 6
+    },
+    "saving_throws": {
+        "str": 4,
+        "dex": 7,
+        "int": 6,
+        "wis": 6
     }
 }

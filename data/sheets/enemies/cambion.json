@@ -13,5 +13,11 @@
         "intimidation": 6,
         "perception": 4,
         "stealth": 7
+    },
+    "saving_throws": {
+        "str": 7,
+        "con": 6,
+        "int": 5,
+        "cha": 6
     }
 }

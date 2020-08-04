@@ -11,5 +11,10 @@
     "skills": {
         "deception": 7,
         "insight": 6
+    },
+    "saving_throws": {
+        "int": 5,
+        "wis": 6,
+        "cha": 7
     }
 }

@@ -12,5 +12,11 @@
         "deception": 5,
         "insight": 5,
         "perception": 8
+    },
+    "saving_throws": {
+        "str": 6,
+        "con": 7,
+        "wis": 5,
+        "cha": 5
     }
 }

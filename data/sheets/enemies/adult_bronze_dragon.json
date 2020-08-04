@@ -12,5 +12,11 @@
         "insight": 7,
         "perception": 12,
         "stealth": 5
+    },
+    "saving_throws": {
+        "dex": 5,
+        "con": 11,
+        "wis": 7,
+        "cha": 9
     }
 }

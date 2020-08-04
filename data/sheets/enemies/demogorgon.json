@@ -11,5 +11,11 @@
     "skills": {
         "insight": 11,
         "perception": 19
+    },
+    "saving_throws": {
+        "dex": 10,
+        "con": 16,
+        "wis": 11,
+        "cha": 15
     }
 }

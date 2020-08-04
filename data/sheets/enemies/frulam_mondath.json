@@ -12,5 +12,9 @@
         "deception": 4,
         "history": 2,
         "religion": 2
+    },
+    "saving_throws": {
+        "wis": 6,
+        "cha": 4
     }
 }

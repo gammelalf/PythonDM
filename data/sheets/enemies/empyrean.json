@@ -11,5 +11,11 @@
     "skills": {
         "insight": 13,
         "persuasion": 15
+    },
+    "saving_throws": {
+        "str": 17,
+        "int": 12,
+        "wis": 13,
+        "cha": 15
     }
 }

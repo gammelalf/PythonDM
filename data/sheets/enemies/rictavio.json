@@ -15,5 +15,9 @@
         "perception": 7,
         "religion": 6,
         "hand": 4
+    },
+    "saving_throws": {
+        "con": 4,
+        "wis": 7
     }
 }

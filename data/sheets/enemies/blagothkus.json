@@ -13,5 +13,10 @@
         "insight": 6,
         "intimidation": 6,
         "perception": 6
+    },
+    "saving_throws": {
+        "con": 9,
+        "wis": 6,
+        "cha": 6
     }
 }

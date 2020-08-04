@@ -15,5 +15,9 @@
         "perception": 4,
         "persuasion": 3,
         "stealth": 7
+    },
+    "saving_throws": {
+        "dex": 5,
+        "int": 4
     }
 }

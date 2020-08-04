@@ -13,5 +13,9 @@
         "deception": 2,
         "insight": 3,
         "stealth": 5
+    },
+    "saving_throws": {
+        "int": 5,
+        "wis": 3
     }
 }

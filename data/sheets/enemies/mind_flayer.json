@@ -15,5 +15,10 @@
         "perception": 6,
         "persuasion": 6,
         "stealth": 4
+    },
+    "saving_throws": {
+        "int": 7,
+        "wis": 6,
+        "cha": 6
     }
 }

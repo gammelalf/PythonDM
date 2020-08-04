@@ -13,5 +13,10 @@
         "perception": 6,
         "religion": 4,
         "stealth": 5
+    },
+    "saving_throws": {
+        "con": 4,
+        "wis": 6,
+        "cha": 7
     }
 }

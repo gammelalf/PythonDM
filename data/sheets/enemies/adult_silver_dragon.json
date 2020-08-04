@@ -13,5 +13,11 @@
         "history": 8,
         "perception": 11,
         "stealth": 5
+    },
+    "saving_throws": {
+        "dex": 5,
+        "con": 12,
+        "wis": 6,
+        "cha": 10
     }
 }

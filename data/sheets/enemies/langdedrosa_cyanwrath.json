@@ -12,5 +12,9 @@
         "athletics": 6,
         "intimidation": 3,
         "perception": 4
+    },
+    "saving_throws": {
+        "str": 6,
+        "con": 5
     }
 }

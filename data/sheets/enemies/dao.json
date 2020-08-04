@@ -7,5 +7,10 @@
     "con": 7,
     "int": 1,
     "wis": 1,
-    "cha": 2
+    "cha": 2,
+    "saving_throws": {
+        "int": 5,
+        "wis": 5,
+        "cha": 6
+    }
 }

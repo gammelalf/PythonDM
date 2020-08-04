@@ -13,5 +13,9 @@
         "perception": 2,
         "stealth": 6,
         "survival": 2
+    },
+    "saving_throws": {
+        "con": 5,
+        "cha": 6
     }
 }

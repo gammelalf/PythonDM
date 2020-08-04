@@ -11,5 +11,11 @@
     "skills": {
         "history": 5,
         "religion": 5
+    },
+    "saving_throws": {
+        "con": 8,
+        "int": 5,
+        "wis": 9,
+        "cha": 8
     }
 }

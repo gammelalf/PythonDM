@@ -12,5 +12,11 @@
         "arcana": 5,
         "deception": 8,
         "perception": 4
+    },
+    "saving_throws": {
+        "dex": 3,
+        "con": 6,
+        "wis": 4,
+        "cha": 5
     }
 }

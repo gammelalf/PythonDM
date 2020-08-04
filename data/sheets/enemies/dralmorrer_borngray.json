@@ -14,5 +14,9 @@
         "insight": 2,
         "perception": 2,
         "religion": 5
+    },
+    "saving_throws": {
+        "str": 6,
+        "con": 4
     }
 }

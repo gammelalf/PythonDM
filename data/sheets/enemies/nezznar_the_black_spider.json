@@ -12,5 +12,9 @@
         "arcana": 5,
         "perception": 4,
         "stealth": 3
+    },
+    "saving_throws": {
+        "int": 5,
+        "wis": 4
     }
 }

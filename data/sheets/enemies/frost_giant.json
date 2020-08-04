@@ -11,5 +11,10 @@
     "skills": {
         "athletics": 9,
         "perception": 3
+    },
+    "saving_throws": {
+        "con": 8,
+        "wis": 3,
+        "cha": 4
     }
 }

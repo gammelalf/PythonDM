@@ -10,5 +10,11 @@
     "cha": 3,
     "skills": {
         "perception": 7
+    },
+    "saving_throws": {
+        "dex": 5,
+        "con": 6,
+        "int": 5,
+        "wis": 4
     }
 }

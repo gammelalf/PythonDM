@@ -13,5 +13,10 @@
         "insight": 12,
         "perception": 12,
         "persuasion": 15
+    },
+    "saving_throws": {
+        "dex": 9,
+        "con": 12,
+        "wis": 12
     }
 }

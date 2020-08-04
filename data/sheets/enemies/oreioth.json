@@ -12,5 +12,8 @@
         "arcana": 5,
         "investigation": 5,
         "medicine": 1
+    },
+    "saving_throws": {
+        "wis": 1
     }
 }

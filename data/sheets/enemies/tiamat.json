@@ -12,5 +12,10 @@
         "arcana": 17,
         "perception": 26,
         "religion": 17
+    },
+    "saving_throws": {
+        "str": 19,
+        "dex": 9,
+        "wis": 17
     }
 }

@@ -11,5 +11,10 @@
     "skills": {
         "athletics": 10,
         "intimidation": 5
+    },
+    "saving_throws": {
+        "str": 7,
+        "dex": 5,
+        "con": 6
     }
 }

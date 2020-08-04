@@ -14,5 +14,9 @@
         "intimidation": 12,
         "perception": 11,
         "stealth": 14
+    },
+    "saving_throws": {
+        "con": 7,
+        "wis": 7
     }
 }

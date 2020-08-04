@@ -11,5 +11,9 @@
     "skills": {
         "arcana": 4,
         "stealth": 4
+    },
+    "saving_throws": {
+        "dex": 4,
+        "cha": 5
     }
 }
