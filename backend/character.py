@@ -7,11 +7,16 @@ class Character(object):
 
     def __init__(self, sheet):
         self.sheet = sheet
-        self.name = sheet.name
+        self.name = sheet["name"]
 
-        self.max_hp = sheet.hp
-        if isinstance(self.max_hp, str):
-            self.max_hp = roll(self.max_hp, gauss_dice)
+        if "hp_expr" in sheet:
+            self.max_hp = roll(sheet["hp_expr"], gauss_dice)
+        elif "hp_avg" in sheet:
+            self.max_hp = sheet["hp_avg"]
+        elif "hp" in sheet:
+            self.max_hp = sheet["hp"]
+        else:
+            raise KeyError()
         self.hp = self.max_hp
 
         self.initiative = Initiative(self.roll_initiative)
@@ -32,7 +37,7 @@ class Character(object):
         Roll for initiative and simply return the rolled value
         (possibly with modifiers)
         """
-        return dice(20) + self.sheet.dex
+        return dice(20) + self.sheet["dex_mod"]
 
 
 class Initiative(list):

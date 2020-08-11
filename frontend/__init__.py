@@ -1,8 +1,8 @@
 from backend import dice
 from backend.util import real_path, json_load
-from backend.sheet import SheetDirectory, Skills
 
 from frontend.game import Game
+from frontend.sheetprovider import SheetDirectory
 
 __all__ = ["sheets", "enemies", "__game",
            "new_battle", "battle_add", "roll_initiative",
@@ -10,7 +10,6 @@ __all__ = ["sheets", "enemies", "__game",
            "dice",
            "encounter"]
 
-Skills.__skill2attr__ = json_load("data/skills.json")
 sheets = SheetDirectory(real_path("data/sheets"))
 enemies = sheets.enemies
 
